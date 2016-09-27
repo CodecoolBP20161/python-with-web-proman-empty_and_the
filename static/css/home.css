@@ -11,10 +11,7 @@ body {
 
 #div-new {
     display: inline-block;
-}
-
-#all-content {
-    display: inline-block;
+    vertical-align: top
 }
 
 .board {
@@ -35,10 +32,12 @@ body {
 
 h1 {
     padding: 10px;
+    word-wrap: break-word
 }
 
 p {
     padding: 10px;
+    word-wrap: break-word
 }
 
 #footer {
