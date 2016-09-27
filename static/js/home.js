@@ -12,7 +12,7 @@ var board5 = new Boards("title3", "text3")
 var boards = [board1, board2, board3, board4, board5]
 localStorage.boards = JSON.stringify(boards)
 
-var save = function(title, text)
+var save_board = function(title, text)
 {
     var newboard = new Boards(title, text)
     var boards = JSON.parse(localStorage.boards)
@@ -20,7 +20,7 @@ var save = function(title, text)
     localStorage.boards = JSON.stringify(boards)
 }
 
-var test = function()
+var display_boards = function()
 {
     var boards = JSON.parse(localStorage.boards)
     for(i=0; i<boards.length; i++)
