@@ -12,6 +12,7 @@ body {
     display: inline-block;
     flex-wrap: wrap;
     justify-content: center;
+    margin-right: 20px;
 }
 
 .headtitle {
