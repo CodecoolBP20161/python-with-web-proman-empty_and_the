@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <title>ProMan Manager</title>
     <script src="/static/js/home.js"></script>
-    <script src="/static/js/home_jquery.js"></script>
+    <!-- <script src="/static/js/home_jquery.js"></script> -->
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="/static/css/home.css">
 
@@ -25,12 +25,10 @@
         </div>
 
         <div id="div-new">
-            <button type="button" onclick=""><img id="add" src="/static/img/add.png"></button>
-            <form action="">
-                Title: <p><input type="text" name="title"></p>
-                Description: <p><textarea name="descrip"></textarea></p>
-                <input type="button" onclick="myFunction()" value="Submit">
-            </form>
+            <button type="button"><img id="add" src="/static/img/add.png"></button>
+            Title: <p><input type="text" name="title" id="title"></p>
+            Description: <p><textarea name="descrip" id="text"></textarea></p>
+            <button type="button" onclick="new_board()"></button>
         </div>
 
     <div class="newForm"></div>

@@ -12,12 +12,36 @@ var board5 = new Boards("title3", "text3")
 var boards = [board1, board2, board3, board4, board5]
 localStorage.boards = JSON.stringify(boards)
 
-var save_board = function(title, text)
+var new_board = function()
 {
+    var title = document.getElementById("title").value
+    var text = document.getElementById("text").value
     var newboard = new Boards(title, text)
+    save_board(newboard)
+}
+
+var save_board = function(newboard)
+{
     var boards = JSON.parse(localStorage.boards)
     boards.push(newboard)
     localStorage.boards = JSON.stringify(boards)
+    display_board(newboard)
+}
+
+var display_board = function(board)
+{
+    var divtag = document.createElement("div");
+    divtag.className = "board"
+    var titletag = document.createElement("h1");
+    var texttag = document.createElement("p");
+    var title = document.createTextNode(board.title);
+    var text = document.createTextNode(board.text);
+    divtag.appendChild(titletag);
+    divtag.appendChild(texttag);
+    titletag.appendChild(title);
+    texttag.appendChild(text);
+    var element = document.getElementById("div1");
+    element.appendChild(divtag);
 }
 
 var display_boards = function()
@@ -25,18 +49,7 @@ var display_boards = function()
     var boards = JSON.parse(localStorage.boards)
     for(i=0; i<boards.length; i++)
     {
-        var divtag = document.createElement("div");
-        divtag.className = "board"
-        var titletag = document.createElement("h1");
-        var texttag = document.createElement("p");
-        var title = document.createTextNode(boards[i].title);
-        var text = document.createTextNode(boards[i].text);
-        divtag.appendChild(titletag);
-        divtag.appendChild(texttag);
-        titletag.appendChild(title);
-        texttag.appendChild(text);
-        var element = document.getElementById("div1");
-        element.appendChild(divtag);
+        display_board(boards[i])
     }
     // document.getElementById("demo").innerHTML = localStorage.boards;
 }
