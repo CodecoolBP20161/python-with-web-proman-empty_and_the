@@ -9,20 +9,28 @@ var board2 = new Boards("title2", "text2")
 var board3 = new Boards("title3", "text3")
 var board4 = new Boards("title2", "text2")
 var board5 = new Boards("title3", "text3")
-var a = [board1, board2, board3, board4, board5]
-localStorage.boards = JSON.stringify(a)
+var boards = [board1, board2, board3, board4, board5]
+localStorage.boards = JSON.stringify(boards)
+
+var save = function(title, text)
+{
+    var newboard = new Boards(title, text)
+    var boards = JSON.parse(localStorage.boards)
+    boards.push(newboard)
+    localStorage.boards = JSON.stringify(boards)
+}
 
 var test = function()
 {
-    var b = JSON.parse(localStorage.boards)
-    for(i=0; i<b.length; i++)
+    var boards = JSON.parse(localStorage.boards)
+    for(i=0; i<boards.length; i++)
     {
         var divtag = document.createElement("div");
         divtag.className = "board"
         var titletag = document.createElement("h1");
         var texttag = document.createElement("p");
-        var title = document.createTextNode(b[i].title);
-        var text = document.createTextNode(b[i].text);
+        var title = document.createTextNode(boards[i].title);
+        var text = document.createTextNode(boards[i].text);
         divtag.appendChild(titletag);
         divtag.appendChild(texttag);
         titletag.appendChild(title);
