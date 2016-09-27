@@ -4,6 +4,10 @@ body {
     margin-right: 30px;
 }
 
+#div1 {
+    width: 80%;
+}
+
 .board {
     width: 200px;
     height: 200px;
@@ -13,6 +17,7 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     margin-right: 20px;
+    margin-bottom: 20px;
 }
 
 .headtitle {
