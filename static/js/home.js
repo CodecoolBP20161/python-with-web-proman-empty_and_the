@@ -16,8 +16,15 @@ var new_board = function()
 {
     var title = document.getElementById("title").value
     var text = document.getElementById("text").value
-    var newboard = new Boards(title, text)
-    save_board(newboard)
+    if (title && text)
+    {
+        var newboard = new Boards(title, text)
+        save_board(newboard)
+    }
+    else
+    {
+        alert("Please fill all the fields!")
+    }
 }
 
 var save_board = function(newboard)
