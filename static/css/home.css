@@ -9,7 +9,9 @@ body {
     height: 200px;
     background-color: grey;
     color: white;
-
+    display: inline-block;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .headtitle {
@@ -56,5 +58,5 @@ button {
 }
 
 .newForm {
-    
+
 }
