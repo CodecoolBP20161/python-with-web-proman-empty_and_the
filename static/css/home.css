@@ -6,6 +6,15 @@ body {
 
 #div1 {
     width: 80%;
+    display: inline-block;
+}
+
+#div-new {
+    display: inline-block;
+}
+
+#all-content {
+    display: inline-block;
 }
 
 .board {
