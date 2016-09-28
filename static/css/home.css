@@ -6,6 +6,18 @@ body {
     font-family: sans-serif;
 }
 
+h1 {
+    font-family: Helvetica;
+    font-weight: bolder;
+    display: inline-block;
+    margin-right: 15px;
+}
+
+#ptext {
+    font-size: 14px;
+    display: inline-block;
+}
+
 #div1 {
     width: 100%;
     display: inline-block;
@@ -20,26 +32,29 @@ body {
     font-size: 12px;
     font-weight: bold;
     color: grey;
-    background-color: lightgrey;
+    background-color: white;
     padding: 10px;
     display: none;
     width: 200px;
     height: 200px;
     margin-right: 35px;
     margin-bottom: 35px;
+    box-shadow: 0 0 10px;
 }
 
 .board {
     width: 200px;
     height: 200px;
-    background-color: grey;
-    color: white;
+    background-color: #f6f6f6;
+    color: grey;
     display: inline-block;
     flex-wrap: wrap;
     justify-content: center;
     margin-right: 35px;
     margin-bottom: 35px;
+    border-radius: 2px;
     overflow: hidden;
+    box-shadow: 0 0 5px;
 }
 
 .headtitle {
@@ -51,17 +66,25 @@ span {
 }
 
 .boardtitle {
-    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 8px;
+    padding-bottom: 5px;
     font-family: Helvetica;
-    font-weight:100;
+    line-height: 90%;
     word-wrap: break-word;
     max-width: 200px;
-    max-height: 65px;
+    max-height: 70px;
     overflow: hidden;
+    margin-top: 0px;
+    border-bottom: solid #1ef1cc 2px;
 }
 
 .board_p {
-    padding: 10px;
+    font-size: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
     word-wrap: break-word;
     max-width: 200px;
     max-height: 105px;
@@ -91,6 +114,7 @@ span {
     border-radius: 5px;
     margin-right: 35px;
     margin-bottom: 35px;
+    border-radius: 2px;
 }
 
 #add {
@@ -105,12 +129,13 @@ span {
     width: 150px;
     height: 40px;
     text-align: center;
-    background-color: #01DEFF;
+    background-color: orange;
+    color: white;
     border-radius: 2px;
 }
 
 #newtitle {
-    
+
 }
 
 .navbar {
@@ -119,6 +144,7 @@ span {
     width: auto;
     border-bottom: 1px solid white;
     z-index: 0;
+
 }
 
 #centerpara {
