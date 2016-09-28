@@ -16,6 +16,11 @@ body {
     vertical-align: top
 }
 
+.newForm {
+    background-color: blue;
+    display: none;
+}
+
 .board {
     width: 200px;
     height: 200px;
@@ -31,6 +36,10 @@ body {
 
 .headtitle {
     display: inline;
+}
+
+span {
+    display: inline-block;
 }
 
 .boardtitle {

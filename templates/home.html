@@ -5,8 +5,11 @@
 
     <meta charset="utf-8">
     <title>ProMan Manager</title>
+    <script   src="https://code.jquery.com/jquery-3.1.1.min.js"
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
     <script src="/static/js/home.js"></script>
-    <!-- <script src="/static/js/home_jquery.js"></script> -->
+    <script src="/static/js/home.js"></script>
+    <script src="/static/js/home_jquery.js"></script>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="/static/css/home.css">
 
@@ -15,7 +18,8 @@
     <div class="headtitle">
         <navbar>
             <div class="navbar">
-                <h1>ProMan</h1>
+                <span><h1>ProMan</h1></span>
+                <span><button type="button"><img id="add" src="/static/img/add.png"></button></span>
             </div>
         </navbar>
     </div>
@@ -29,10 +33,12 @@
         </div>
 
         <div id="div-new">
-            <button type="button"><img id="add" src="/static/img/add.png"></button>
-            Title: <p><input type="text" name="title" id="title"></p>
-            Description: <p><textarea name="descrip" id="text"></textarea></p>
-            <button type="button" onclick="new_board()"></button>
+
+            <div class="newForm">
+                Title: <p><input type="text" name="title" id="title"></p>
+                Description: <p><textarea name="descrip" id="text"></textarea></p>
+                <button type="button" onclick="new_board()"></button>
+            </div>
         </div>
 
         <div class="footer navbar-fixed-bottom">
