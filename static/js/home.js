@@ -39,7 +39,7 @@ var display_board = function(board)
 {
     var divtag = document.createElement("div");
     divtag.className = "board"
-    var titletag = document.createElement("h1");
+    var titletag = document.createElement("h2");
     var texttag = document.createElement("p");
     var title = document.createTextNode(board.title);
     var text = document.createTextNode(board.text);

@@ -11,10 +11,7 @@ body {
 
 #div-new {
     display: inline-block;
-}
-
-#all-content {
-    display: inline-block;
+    vertical-align: top
 }
 
 .board {
@@ -27,18 +24,25 @@ body {
     justify-content: center;
     margin-right: 20px;
     margin-bottom: 20px;
+    overflow: hidden;
 }
 
 .headtitle {
     display: inline;
 }
 
-h1 {
-    padding: 10px;
+h2 {
+    word-wrap: break-word;
+    max-width: 200px;
+    max-height: 65px;
+    overflow: hidden;
 }
 
 p {
-    padding: 10px;
+    word-wrap: break-word;
+    max-width: 200px;
+    max-height: 105px;
+    overflow: hidden;
 }
 
 #footer {
@@ -70,8 +74,4 @@ button {
     height: 60px;
     padding: 5px;
     text-align: center;
-}
-
-.newForm {
-
 }
