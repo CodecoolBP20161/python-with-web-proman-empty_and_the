@@ -47,16 +47,14 @@ var display_board = function(board)
     buttontag.type = "button"
     buttontag.id = "delete"
     buttontag.onclick = "#"
-    var imgtag = document.createElement("img");
-    imgtag.id = "dustbin"
-    imgtag.src = "/static/img/delete.png"
     var texttag = document.createElement("p");
     texttag.className = "board_p"
     var title = document.createTextNode(board.title);
+    var buttontext = document.createTextNode("delete");
     var text = document.createTextNode(board.text);
     divtag.appendChild(div2tag);
     div2tag.appendChild(titletag);
-    buttontag.appendChild(imgtag);
+    buttontag.appendChild(buttontext);
     div2tag.appendChild(buttontag);
     divtag.appendChild(texttag);
     titletag.appendChild(title);

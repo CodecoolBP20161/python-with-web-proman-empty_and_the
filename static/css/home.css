@@ -132,18 +132,10 @@ span {
 }
 
 #delete {
-    background-color: Transparent;
-    border: none;
+    border: solid 1px black;
     position: absolute;
-    left: 170px;
+    left: 120px;
     top: 5px;
-    width: 25px;
-    height: 25px;
-}
-
-#dustbin {
-    width: 120%;
-    height: 120%;
 }
 
 #submitbutton {
