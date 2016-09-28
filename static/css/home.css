@@ -78,7 +78,6 @@ span {
     max-height: 70px;
     overflow: hidden;
     margin-top: 0px;
-    border-bottom: solid #1ef1cc 2px;
 }
 
 .board_p {
@@ -129,6 +128,7 @@ span {
 .div2 {
     width: 100%;
     display: inline-flex;
+    border-bottom: solid #1ef1cc 2px;
 }
 
 #delete {
