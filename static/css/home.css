@@ -62,20 +62,15 @@ h1 {
     display: inline;
 }
 
-span {
-    display: inline-block;
-}
-
 .boardtitle {
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 8px;
-    padding-bottom: 5px;
+    padding-bottom: 0px;
     font-family: Helvetica;
-    line-height: 90%;
     word-wrap: break-word;
     max-width: 200px;
-    max-height: 70px;
+    max-height: 75px;
     overflow: hidden;
     margin-top: 0px;
 }
@@ -85,25 +80,17 @@ span {
     padding-left: 10px;
     padding-right: 10px;
     padding-bottom: 10px;
+    padding-top: 3px;
     word-wrap: break-word;
     max-width: 200px;
-    max-height: 105px;
+    max-height: 75px;
     overflow: hidden;
+    line-height: 1.2;
 }
 
 #footer {
     font-size: 8px;
     text-align: center;
-}
-
-.verticalline {
-    bottom: 0px;
-    top: 0px;
-    background: white;
-    height: 300px;
-    border-left: 1px black solid;
-    right: 250px;
-    position: absolute;
 }
 
 #addbutton {
@@ -132,10 +119,13 @@ span {
 }
 
 #delete {
-    border: solid 1px black;
+    /*border: solid 2px;*/
+    background-color: #6B2593;
+    border-radius: 10px;
+    color: white;
     position: absolute;
-    left: 120px;
-    top: 5px;
+    right: 10px;
+    bottom: 10px;
 }
 
 #submitbutton {
