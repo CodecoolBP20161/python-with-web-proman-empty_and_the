@@ -34,7 +34,8 @@ h1 {
     font-weight: bold;
     color: grey;
     background-color: white;
-    padding: 10px;
+    padding-top: 10px;
+    padding-left: 10px;
     display: none;
     width: 200px;
     height: 200px;
@@ -87,6 +88,11 @@ h1 {
     max-height: 75px;
     overflow: hidden;
     line-height: 1.2;
+}
+
+#newtitle {
+    font-size: 24px;
+    border-bottom: solid 2px black;
 }
 
 #footer {
@@ -144,7 +150,7 @@ h1 {
     color: white;
     font-size: 18px;
     width: auto;
-    margin-right: 90px;
+    margin-right: 95px;
     border-bottom: 1px solid white;
     z-index: 0;
 
