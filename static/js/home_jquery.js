@@ -4,6 +4,13 @@ $(document).ready(function(){
         $("#addbutton").hide();
     });
 
+
+    $(".delete").click(function(){
+        $(this).parent().parent().hide();
+        delete_board(this.value)
+    });
+
+
     $(document).mouseup(function (e) {
         var container = $(".newForm");
 
