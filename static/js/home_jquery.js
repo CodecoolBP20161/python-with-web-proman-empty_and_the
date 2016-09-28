@@ -12,6 +12,8 @@ $(document).ready(function(){
     $("#cancel").click(function(){
         $(".newForm").hide();
         $("#addbutton").show();
+        $('#title').val('');
+        $('#text').val('');
     });
 
     $(document).mouseup(function (e) {
