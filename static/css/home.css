@@ -1,7 +1,9 @@
 body {
-    background-color: #FFFBF5;
+    background: linear-gradient(to right, rgba(13,222,194,1) 0%, rgba(54,166,217,1) 100%);
+    /*background-color: #FFFBF5;*/
     margin-left: 30px;
     margin-right: 30px;
+    font-family: sans-serif;
 }
 
 #div1 {
@@ -31,14 +33,18 @@ body {
     display: inline;
 }
 
-h2 {
+.boardtitle {
+    padding: 5px;
+    font-family: Helvetica;
+    font-weight:100;
     word-wrap: break-word;
     max-width: 200px;
     max-height: 65px;
     overflow: hidden;
 }
 
-p {
+.board_p {
+    padding: 10px;
     word-wrap: break-word;
     max-width: 200px;
     max-height: 105px;
@@ -74,4 +80,29 @@ button {
     height: 60px;
     padding: 5px;
     text-align: center;
+}
+
+.navbar {
+    color: white;
+    font-size: 18px;
+    width: auto;
+    border-bottom: 1px solid white;
+    z-index: 0;
+}
+
+#centerpara {
+    word-wrap: normal;
+}
+
+.navbartext {
+    text-align: center;
+    font-size: 10px;
+    margin-top: 12px;
+}
+
+.footer {
+    text-align: center;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.5);
+    color: black;
 }
