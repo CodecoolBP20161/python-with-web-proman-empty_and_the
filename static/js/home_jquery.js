@@ -11,10 +11,5 @@ $(document).ready(function(){
 
     $(document).mouseup(function (e) {
         var container = $(".newForm");
-
-    });
-    $("#save").click(function() {
-        $(".newForm").hide();
-        $("#addbutton").fadeIn();
     });
 });

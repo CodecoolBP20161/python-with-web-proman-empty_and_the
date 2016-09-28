@@ -20,6 +20,10 @@ var new_board = function()
     {
         var newboard = new Boards(title, text)
         save_board(newboard)
+        $(document).on("click", "#save", function() {
+            $(".newForm").hide();
+            $("#addbutton").fadeIn();
+        });
     }
     else
     {
