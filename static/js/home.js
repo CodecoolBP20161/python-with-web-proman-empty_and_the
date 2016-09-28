@@ -39,13 +39,25 @@ var display_board = function(board)
 {
     var divtag = document.createElement("div");
     divtag.className = "board"
+    var div2tag = document.createElement("div");
+    div2tag.className = "div2"
     var titletag = document.createElement("h2");
     titletag.className = "boardtitle"
+    var buttontag = document.createElement("button");
+    buttontag.type = "button"
+    buttontag.id = "delete"
+    buttontag.onclick = "#"
+    var imgtag = document.createElement("img");
+    imgtag.id = "dustbin"
+    imgtag.src = "/static/img/delete.png"
     var texttag = document.createElement("p");
     texttag.className = "board_p"
     var title = document.createTextNode(board.title);
     var text = document.createTextNode(board.text);
-    divtag.appendChild(titletag);
+    divtag.appendChild(div2tag);
+    div2tag.appendChild(titletag);
+    buttontag.appendChild(imgtag);
+    div2tag.appendChild(buttontag);
     divtag.appendChild(texttag);
     titletag.appendChild(title);
     texttag.appendChild(text);
