@@ -11,8 +11,12 @@ $(document).ready(function(){
             && container.has(e.target).length === 0) // ... nor a descendant of the container
         {
             container.hide();
-            $("#addbutton").show();
+            $("#addbutton").fadeIn("fast");
 
     };
+    $("#submitbutton").click(function() {
+        $(".newForm").hide();
+        $("#addbutton").fadeIn();
+    });
 });
 });
