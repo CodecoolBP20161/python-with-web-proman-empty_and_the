@@ -128,14 +128,18 @@ h1 {
     bottom: 10px;
 }
 
-#submitbutton {
-    width: 150px;
+.submitbutton {
+    width: 65px;
     height: 40px;
+    margin-right: 10px;
     text-align: center;
     background-color: orange;
     color: white;
     border-radius: 2px;
+    display: inline-block;
 }
+
+
 
 .navbar {
     color: white;
