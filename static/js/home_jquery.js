@@ -1,6 +1,7 @@
 $(document).ready(function(){
-    $("button").click(function(){
+    $("#addbutton").click(function(){
         $(".newForm").fadeIn();
+        $("#addbutton").hide();
     });
 
     $(document).mouseup(function (e) {
@@ -10,6 +11,7 @@ $(document).ready(function(){
             && container.has(e.target).length === 0) // ... nor a descendant of the container
         {
             container.hide();
+            $("#addbutton").show();
 
     };
 });

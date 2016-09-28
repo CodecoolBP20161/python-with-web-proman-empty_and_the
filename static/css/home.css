@@ -7,7 +7,7 @@ body {
 }
 
 #div1 {
-    width: 80%;
+    width: 100%;
     display: inline-block;
 }
 
@@ -75,7 +75,7 @@ span {
     position: absolute;
 }
 
-button {
+#addbutton {
     width: 100px;
     height: 100px;
     text-align: center;

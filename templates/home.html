@@ -18,12 +18,19 @@
     <div class="headtitle">
         <navbar>
             <div class="navbar">
-                <span><h1>ProMan</h1></span>
-                <span><button type="button"><img id="add" src="/static/img/add.png"></button></span>
+                <h1>ProMan</h1>
             </div>
         </navbar>
     </div>
         <div id="div1">
+            <div id="div-new">
+                <button type="button" id="addbutton"><img id="add" src="/static/img/add.png"></button>
+                <div class="newForm">
+                    Title: <p><input type="text" name="title" id="title"></p>
+                    Description: <p><textarea name="descrip" id="text"></textarea></p>
+                    <button type="button" onclick="new_board()"></button>
+                </div>
+            </div>
 
         <!-- <div class="board">
             <h2>Board Title</h2>
@@ -32,14 +39,7 @@
 
         </div>
 
-        <div id="div-new">
 
-            <div class="newForm">
-                Title: <p><input type="text" name="title" id="title"></p>
-                Description: <p><textarea name="descrip" id="text"></textarea></p>
-                <button type="button" onclick="new_board()"></button>
-            </div>
-        </div>
 
         <div class="footer navbar-fixed-bottom">
             <p class= "navbartext">© 2016 | Empty and the All rights reserved</p>
