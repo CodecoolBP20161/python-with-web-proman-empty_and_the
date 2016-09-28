@@ -131,7 +131,7 @@ span {
     border-bottom: solid #1ef1cc 2px;
 }
 
-#delete {
+.delete {
     border: solid 1px black;
     position: absolute;
     left: 120px;
