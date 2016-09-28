@@ -1,8 +1,8 @@
 body {
     background: linear-gradient(to right, rgba(13,222,194,1) 0%, rgba(54,166,217,1) 100%);
     /*background-color: #FFFBF5;*/
-    margin-left: 60px;
-    margin-right: 60px;
+    margin-left: 70px;
+    /*margin-right: 60px;*/
     font-family: sans-serif;
 }
 
@@ -19,6 +19,7 @@ h1 {
 }
 
 #div1 {
+    margin: auto;
     width: 100%;
     display: inline-block;
 }
@@ -139,12 +140,11 @@ h1 {
     display: inline-block;
 }
 
-
-
 .navbar {
     color: white;
     font-size: 18px;
     width: auto;
+    margin-right: 90px;
     border-bottom: 1px solid white;
     z-index: 0;
 
