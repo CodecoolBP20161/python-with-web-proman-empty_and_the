@@ -125,16 +125,13 @@ h1 {
     border-bottom: solid #1ef1cc 2px;
 }
 
-<<<<<<< HEAD
+
 .delete {
     border: solid 1px black;
-=======
-#delete {
     /*border: solid 2px;*/
     background-color: #6B2593;
     border-radius: 10px;
     color: white;
->>>>>>> 4ca9aadef541e47521c6570426da1b01c5ade090
     position: absolute;
     right: 10px;
     bottom: 10px;
