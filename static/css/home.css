@@ -1,8 +1,8 @@
 body {
     background: linear-gradient(to right, rgba(13,222,194,1) 0%, rgba(54,166,217,1) 100%);
     /*background-color: #FFFBF5;*/
-    margin-left: 60px;
-    margin-right: 60px;
+    margin-left: 70px;
+    /*margin-right: 60px;*/
     font-family: sans-serif;
 }
 
@@ -19,6 +19,7 @@ h1 {
 }
 
 #div1 {
+    margin: auto;
     width: 100%;
     display: inline-block;
 }
@@ -33,7 +34,8 @@ h1 {
     font-weight: bold;
     color: grey;
     background-color: white;
-    padding: 10px;
+    padding-top: 10px;
+    padding-left: 10px;
     display: none;
     width: 200px;
     height: 200px;
@@ -62,20 +64,15 @@ h1 {
     display: inline;
 }
 
-span {
-    display: inline-block;
-}
-
 .boardtitle {
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 8px;
-    padding-bottom: 5px;
+    padding-bottom: 0px;
     font-family: Helvetica;
-    line-height: 90%;
     word-wrap: break-word;
     max-width: 200px;
-    max-height: 70px;
+    max-height: 75px;
     overflow: hidden;
     margin-top: 0px;
 }
@@ -85,25 +82,22 @@ span {
     padding-left: 10px;
     padding-right: 10px;
     padding-bottom: 10px;
+    padding-top: 3px;
     word-wrap: break-word;
     max-width: 200px;
-    max-height: 105px;
+    max-height: 75px;
     overflow: hidden;
+    line-height: 1.2;
+}
+
+#newtitle {
+    font-size: 24px;
+    border-bottom: solid 2px black;
 }
 
 #footer {
     font-size: 8px;
     text-align: center;
-}
-
-.verticalline {
-    bottom: 0px;
-    top: 0px;
-    background: white;
-    height: 300px;
-    border-left: 1px black solid;
-    right: 250px;
-    position: absolute;
 }
 
 #addbutton {
@@ -131,26 +125,37 @@ span {
     border-bottom: solid #1ef1cc 2px;
 }
 
+<<<<<<< HEAD
 .delete {
     border: solid 1px black;
+=======
+#delete {
+    /*border: solid 2px;*/
+    background-color: #6B2593;
+    border-radius: 10px;
+    color: white;
+>>>>>>> 4ca9aadef541e47521c6570426da1b01c5ade090
     position: absolute;
-    left: 120px;
-    top: 5px;
+    right: 10px;
+    bottom: 10px;
 }
 
-#submitbutton {
-    width: 150px;
+.submitbutton {
+    width: 65px;
     height: 40px;
+    margin-right: 10px;
     text-align: center;
     background-color: orange;
     color: white;
     border-radius: 2px;
+    display: inline-block;
 }
 
 .navbar {
     color: white;
     font-size: 18px;
     width: auto;
+    margin-right: 95px;
     border-bottom: 1px solid white;
     z-index: 0;
 
