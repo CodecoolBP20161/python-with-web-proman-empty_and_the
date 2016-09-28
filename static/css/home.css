@@ -55,6 +55,7 @@ h1 {
     border-radius: 2px;
     overflow: hidden;
     box-shadow: 0 0 5px;
+    position: relative;
 }
 
 .headtitle {
@@ -125,6 +126,26 @@ span {
     text-align: center;
 }
 
+.div2 {
+    width: 100%;
+    display: inline-flex;
+}
+
+#delete {
+    background-color: Transparent;
+    border: none;
+    position: absolute;
+    left: 170px;
+    top: 5px;
+    width: 25px;
+    height: 25px;
+}
+
+#dustbin {
+    width: 120%;
+    height: 120%;
+}
+
 #submitbutton {
     width: 150px;
     height: 40px;
@@ -132,10 +153,6 @@ span {
     background-color: orange;
     color: white;
     border-radius: 2px;
-}
-
-#newtitle {
-
 }
 
 .navbar {
