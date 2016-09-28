@@ -33,11 +33,13 @@ var new_board = function()
         $(document).on("click", "#save", function() {
             $(".newForm").hide();
             $("#addbutton").fadeIn();
+            $('#title').val('');
+            $('#text').val('');
         });
     }
     else
     {
-        alert("Please fill all the fields!")
+        alert("Fill all!")
     }
 }
 
