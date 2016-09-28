@@ -11,7 +11,7 @@ $(document).ready(function(){
 
     $("#cancel").click(function(){
         $(".newForm").hide();
-        $("#addbutton").show();
+        $("#addbutton").fadeIn();
         $('#title').val('');
         $('#text').val('');
     });
