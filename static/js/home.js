@@ -22,7 +22,7 @@ $(document).ready(function(){
         }
     });
 
-    $(".newCard").hover(function(){
+    $(".cards").hover(function(){
         $(this).css("background-color", "#004c00");
     }, function(){
         $(this).css("background-color", "#008000");
@@ -119,13 +119,13 @@ var display_board = function(board)
     var buttontag2 = document.createElement("button");
     buttontag2.addEventListener("click", redirectToCards);
     buttontag2.type = "button"
-    buttontag2.className = "newCard"
+    buttontag2.className = "cards"
     buttontag2.value = board.id
     var texttag = document.createElement("p");
     texttag.className = "board_p"
     var title = document.createTextNode(board.title);
     var buttontext = document.createTextNode("delete");
-    var buttontext2 = document.createTextNode("new card");
+    var buttontext2 = document.createTextNode("cards");
     var text = document.createTextNode(board.text);
     divtag.appendChild(div2tag);
     div2tag.appendChild(titletag);
