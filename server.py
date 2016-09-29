@@ -10,8 +10,8 @@ def root():
     return render_template('home.html')
 
 
-@app.route('/cards')
-def cards():
-    return render_template('cards.html')
+@app.route('/cards/<board_id>')
+def cards(board_id):
+    return render_template('cards.html', board_id=board_id)
 
 app.run(debug=True)
