@@ -4,19 +4,32 @@ $(document).ready(function(){
         $("#addbutton").hide();
     });
 
-    $(".delete").click(function(){
-        $(this).parent().parent().hide();
-        delete_board(this.value)
-    });
-
     $("#cancel").click(function(){
         $(".newForm").hide();
         $("#addbutton").fadeIn();
         $('#title').val('');
         $('#text').val('');
     });
+
+    $("#save").click(function(){
+        var save = new_board()
+        if (save)
+        {
+        $(".newForm").hide();
+        $("#addbutton").fadeIn();
+        $('#title').val('');
+        $('#text').val('');
+        }
+    });
 });
 
+
+
+var boardDeleteHandler = function()
+{
+        $(this).parent().parent().hide();
+        delete_board(this.value)
+}
 
 var Boards = function(title, text, num)
 {
@@ -42,16 +55,12 @@ var new_board = function()
         }
         var newboard = new Boards(title, text, num)
         save_board(newboard)
-        $(document).on("click", "#save", function() {
-            $(".newForm").hide();
-            $("#addbutton").fadeIn();
-            $('#title').val('');
-            $('#text').val('');
-        });
+        return true
     }
     else
     {
         alert("Fill all!")
+        return false
     }
 }
 
@@ -61,10 +70,6 @@ var save_board = function(newboard)
     boards.push(newboard)
     localStorage.boards = JSON.stringify(boards)
     display_board(newboard)
-    $(".delete").click(function(){
-        $(this).parent().parent().hide();
-        delete_board(this.value)
-    });
 }
 
 var delete_board = function(num)
@@ -90,6 +95,7 @@ var display_board = function(board)
     var titletag = document.createElement("h2");
     titletag.className = "boardtitle"
     var buttontag = document.createElement("button");
+    buttontag.addEventListener("click", boardDeleteHandler)
     buttontag.type = "button"
     buttontag.className = "delete"
     buttontag.value = board.num
