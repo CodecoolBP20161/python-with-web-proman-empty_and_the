@@ -1,17 +1,29 @@
+$(document).ready(function(){
+    $("#addbutton").click(function(){
+        $(".newForm").fadeIn();
+        $("#addbutton").hide();
+    });
+
+    $(".delete").click(function(){
+        $(this).parent().parent().hide();
+        delete_board(this.value)
+    });
+
+    $("#cancel").click(function(){
+        $(".newForm").hide();
+        $("#addbutton").fadeIn();
+        $('#title').val('');
+        $('#text').val('');
+    });
+});
+
+
 var Boards = function(title, text, num)
 {
     this.title = title
     this.text = text
     this.num = num
 }
-
-var board1 = new Boards("title1", "text1", 1)
-var board2 = new Boards("title2", "text2", 2)
-var board3 = new Boards("title3", "text3", 3)
-var board4 = new Boards("title2", "text2", 4)
-var board5 = new Boards("title3", "text3", 5)
-var boards = [board1, board2, board3, board4, board5]
-localStorage.boards = JSON.stringify(boards)
 
 var new_board = function()
 {
