@@ -123,8 +123,9 @@ var display_board = function(board)
 var display_boards = function()
 {
     if (!localStorage.boards) {
-        localStorage.boards = [];
-    }    
+        var empty_list = [];
+        localStorage.boards = JSON.stringify(empty_list);
+    }
     var boards = JSON.parse(localStorage.boards)
     for(i=0; i<boards.length; i++)
     {
