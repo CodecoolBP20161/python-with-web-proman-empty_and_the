@@ -21,6 +21,10 @@ $(document).ready(function(){
         $('#text').val('');
         }
     });
+
+    $(".board").click(function() {
+        window.location.href = '/cards';
+    });
 });
 
 
@@ -31,11 +35,12 @@ var boardDeleteHandler = function()
         delete_board(this.value)
 }
 
-var Boards = function(title, text, num)
+var Boards = function(title, text, num, cards)
 {
     this.title = title
     this.text = text
     this.num = num
+    this.cards = cards
 }
 
 var new_board = function()
@@ -53,7 +58,7 @@ var new_board = function()
         {
             var num = boards[boards.length - 1].num + 1
         }
-        var newboard = new Boards(title, text, num)
+        var newboard = new Boards(title, text, num, cards = [])
         save_board(newboard)
         return true
     }
@@ -117,6 +122,9 @@ var display_board = function(board)
 
 var display_boards = function()
 {
+    if (!localStorage.boards) {
+        localStorage.boards = [];
+    }    
     var boards = JSON.parse(localStorage.boards)
     for(i=0; i<boards.length; i++)
     {
