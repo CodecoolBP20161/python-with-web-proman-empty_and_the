@@ -37,11 +37,6 @@ $(document).ready(function(){
 
 });
 
-var redirectToCards = function() {
-    window.location.href = '/cards/'+ this.value;
-};
-
-
 var boardDeleteHandler = function()
 {
         $(this).parent().parent().hide();
@@ -54,10 +49,6 @@ var Cards = function(title, text, id)
     this.text = text
     this.id = id
 }
-
-card1= new Cards("dasasd", "asdasdasd", 1)
-card2= new Cards("dasasd", "asdasdasd", 2)
-card3= new Cards("dasasd", "asdasdasd", 3)
 
 var get_current_board = function(boards)
 {
@@ -87,7 +78,7 @@ var new_card = function()
         }
         else
         {
-            var id = boards[current_board.cards.length - 1].id + 1
+            var id = cards[current_board.cards.length - 1].id + 1
         }
         var newcard = new Cards(title, text, id)
         save_card(newcard)
@@ -130,33 +121,25 @@ var delete_card = function(id)
 var display_card = function(card)
 {
     var divtag = document.createElement("div");
-    divtag.className = "board"
+    divtag.className = "card"
     var div2tag = document.createElement("div");
     div2tag.className = "div2"
     var titletag = document.createElement("h2");
-    titletag.className = "boardtitle"
+    titletag.className = "cardtitle"
     var buttontag = document.createElement("button");
     buttontag.addEventListener("click", boardDeleteHandler)
     buttontag.type = "button"
     buttontag.className = "delete"
     buttontag.value = card.id
-    var buttontag2 = document.createElement("button");
-    buttontag2.addEventListener("click", redirectToCards);
-    buttontag2.type = "button"
-    buttontag2.className = "cards"
-    buttontag2.value = card.id
     var texttag = document.createElement("p");
-    texttag.className = "board_p"
+    texttag.className = "card_p"
     var title = document.createTextNode(card.title);
     var buttontext = document.createTextNode("delete");
-    var buttontext2 = document.createTextNode("cards");
     var text = document.createTextNode(card.text);
     divtag.appendChild(div2tag);
     div2tag.appendChild(titletag);
     buttontag.appendChild(buttontext);
-    buttontag2.appendChild(buttontext2);
     div2tag.appendChild(buttontag);
-    div2tag.appendChild(buttontag2);
     divtag.appendChild(texttag);
     titletag.appendChild(title);
     texttag.appendChild(text);
