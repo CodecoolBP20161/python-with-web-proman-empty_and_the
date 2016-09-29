@@ -16,6 +16,7 @@ h1 {
 #ptext {
     font-size: 14px;
     display: inline-block;
+    margin-left: 70px;
 }
 
 #div1 {
@@ -127,7 +128,7 @@ h1 {
 
 
 .delete {
-    border: solid 1px black;
+    border: solid 1px white;
     background-color: #6B2593;
     border-radius: 3px;
     color: white;
@@ -137,8 +138,8 @@ h1 {
 }
 
 .cards {
-    border: solid 1px black;
-    background-color: green;
+    border: solid 1px white;
+    background-color: #1ed68d;
     border-radius: 3px;
     color: white;
     position: absolute;

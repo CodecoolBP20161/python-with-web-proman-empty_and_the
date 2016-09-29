@@ -23,9 +23,9 @@ $(document).ready(function(){
     });
 
     $(".cards").hover(function(){
-        $(this).css("background-color", "#004c00");
+        $(this).css("background-color", "#05a565");
     }, function(){
-        $(this).css("background-color", "#008000");
+        $(this).css("background-color", "#1ed68d");
     });
 
     $(".delete").hover(function(){
