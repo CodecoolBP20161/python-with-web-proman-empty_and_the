@@ -22,6 +22,18 @@ $(document).ready(function(){
         }
     });
 
+    $(".newCard").hover(function(){
+        $(this).css("background-color", "#004c00");
+    }, function(){
+        $(this).css("background-color", "#008000");
+    });
+
+    $(".delete").hover(function(){
+        $(this).css("background-color", "#401658");
+    }, function(){
+        $(this).css("background-color", "#6B2593");
+    });
+
 });
 
 var redirectToCards = function() {
