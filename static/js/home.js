@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    display_boards()
     $("#addbutton").click(function(){
         $(".newForm").fadeIn();
         $("#addbutton").hide();
