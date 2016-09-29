@@ -34,7 +34,16 @@ h1 a.hover {
 
 #div-new {
     display: inline-block;
-    vertical-align: top
+    vertical-align: top;
+}
+
+#title{
+    width: 180px;
+}
+
+#text{
+    width: 180px;
+    height: 250px;
 }
 
 .newForm {
@@ -46,7 +55,7 @@ h1 a.hover {
     padding-left: 10px;
     display: none;
     width: 200px;
-    height: 200px;
+    height: 400px;
     margin-right: 35px;
     margin-bottom: 35px;
     box-shadow: 0 0 10px;
@@ -54,7 +63,7 @@ h1 a.hover {
 
 .card {
     width: 200px;
-    height: 200px;
+    height: 400px;
     background-color: #f6f6f6;
     color: grey;
     display: inline-block;
@@ -110,7 +119,7 @@ h1 a.hover {
 
 #addbutton {
     width: 200px;
-    height: 200px;
+    height: 400px;
     text-align: center;
     background-color: orange;
     border-radius: 5px;

@@ -45,6 +45,15 @@ h1 {
     box-shadow: 0 0 10px;
 }
 
+#title{
+    width: 180px;
+}
+
+#text{
+    width: 180px;
+    height: 60px;
+}
+
 .board {
     width: 200px;
     height: 200px;
