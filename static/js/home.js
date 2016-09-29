@@ -22,10 +22,11 @@ $(document).ready(function(){
         }
     });
 
-    $(".board").click(function() {
-        window.location.href = '/cards';
-    });
 });
+
+var redirectToCards = function() {
+    window.location.href = '/cards/'+ this.value;
+};
 
 
 
@@ -35,11 +36,11 @@ var boardDeleteHandler = function()
         delete_board(this.value)
 }
 
-var Boards = function(title, text, num, cards)
+var Boards = function(title, text, id, cards)
 {
     this.title = title
     this.text = text
-    this.num = num
+    this.id = id
     this.cards = cards
 }
 
@@ -52,13 +53,13 @@ var new_board = function()
     {
         if (boards.length == 0)
         {
-            var num = 1
+            var id = 1
         }
         else
         {
-            var num = boards[boards.length - 1].num + 1
+            var id = boards[boards.length - 1].id + 1
         }
-        var newboard = new Boards(title, text, num, cards = [])
+        var newboard = new Boards(title, text, id, cards = [])
         save_board(newboard)
         return true
     }
@@ -77,12 +78,12 @@ var save_board = function(newboard)
     display_board(newboard)
 }
 
-var delete_board = function(num)
+var delete_board = function(id)
 {
     var boards = JSON.parse(localStorage.boards)
     for (i=0; i<boards.length; i++)
     {
-        if (num == boards[i].num)
+        if (id == boards[i].id)
         {
             delete boards.splice(i, 1)
             break
@@ -95,6 +96,8 @@ var display_board = function(board)
 {
     var divtag = document.createElement("div");
     divtag.className = "board"
+    divtag.value = board.id
+    divtag.addEventListener("click", redirectToCards)
     var div2tag = document.createElement("div");
     div2tag.className = "div2"
     var titletag = document.createElement("h2");
@@ -103,7 +106,7 @@ var display_board = function(board)
     buttontag.addEventListener("click", boardDeleteHandler)
     buttontag.type = "button"
     buttontag.className = "delete"
-    buttontag.value = board.num
+    buttontag.value = board.id
     var texttag = document.createElement("p");
     texttag.className = "board_p"
     var title = document.createTextNode(board.title);
