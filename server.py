@@ -9,4 +9,9 @@ app.config.update(dict(SECRET_KEY='development key'))
 def root():
     return render_template('home.html')
 
+
+@app.route('/cards')
+def cards():
+    return render_template('cards.html')
+
 app.run(debug=True)
