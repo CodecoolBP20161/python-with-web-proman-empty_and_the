@@ -10,7 +10,7 @@ def root():
     return render_template('home.html')
 
 
-@app.route('/cards/<board_id>')
+@app.route('/boards/<board_id>')
 def cards(board_id):
     return render_template('cards.html', board_id=board_id)
 

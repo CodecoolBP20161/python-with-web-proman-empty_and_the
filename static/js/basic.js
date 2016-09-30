@@ -79,7 +79,7 @@ var cardDeleteHandler = function(){
 
 // Redirecting to cards page
 var redirectToCards = function(){
-    window.location.href = '/cards/'+ this.value;
+    window.location.href = '/boards/'+ this.value;
 };
 
 // Boards constructor
