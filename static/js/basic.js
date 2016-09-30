@@ -1,4 +1,6 @@
+// JQuery to load after HTML page is ready
 $(document).ready(function(){
+    // Examine if we are on the boards page or not
     if (window.location.pathname == "/"){
         displayBoards()
         var boards_bool = true
@@ -9,6 +11,7 @@ $(document).ready(function(){
         var boards_bool = false
     }
 
+    // JQery for handling save button click
     $("#save").click(function(){
         if (boards_bool){
             var save = newBoard()
@@ -25,16 +28,18 @@ $(document).ready(function(){
         }
     });
 
+    // JQery for handling add button click
     $("#addbutton").click(function(){
         $(".newForm").fadeIn();
         $("#addbutton").hide();
     });
 
+    // JQery for handling header click
     $("#home").click(function(){
         window.location.href = '/'
     });
 
-
+    // JQery for handling cancel button click
     $("#cancel").click(function(){
         $(".newForm").hide();
         $("#addbutton").fadeIn();
