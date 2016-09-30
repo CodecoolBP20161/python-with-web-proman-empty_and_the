@@ -122,6 +122,13 @@ var Boards = function(title, text, id, cards){
     this.text = text
     this.id = id
     this.cards = cards
+    // Saving board to localStorage
+    this.saveBoard = function(){
+        var boards = state.get_board_list();
+        boards.push(this);
+        state.save_board_list(boards);
+        displayBoard(this);
+    }
 }
 
 // Cards constructor
@@ -129,6 +136,15 @@ var Cards = function(title, text, id){
     this.title = title
     this.text = text
     this.id = id
+    // Saving card to localStorage
+    this.saveCard = function(){
+        var boards = state.get_board_list();
+        var current_board = getCurrentBoard(boards)
+        var cards = current_board.cards
+        cards.push(this)
+        state.save_board_list(boards);
+        displayCard(this)
+    }
 }
 
 // Creating new board from input data, returns false if user didn't fill all the fields
@@ -147,7 +163,7 @@ var newBoard = function(){
             var id = boards[boards.length - 1].id + 1
         }
         var newboard = new Boards(title, text, id, cards = [])
-        saveBoard(newboard)
+        newboard.saveBoard()
         return true
     }
     else
@@ -155,14 +171,6 @@ var newBoard = function(){
         alert("Fill all!")
         return false
     }
-}
-
-// Saving new board to localStorage
-var saveBoard = function(newboard){
-    var boards = state.get_board_list();
-    boards.push(newboard);
-    state.save_board_list(boards);
-    displayBoard(newboard);
 }
 
 // Delete board from localStorage
@@ -276,7 +284,7 @@ var newCard = function(){
             var id = cards[current_board.cards.length - 1].id + 1
         }
         var newcard = new Cards(title, text, id)
-        saveCard(newcard)
+        newcard.saveCard()
         return true
     }
     else
@@ -284,16 +292,6 @@ var newCard = function(){
         alert("Fill all!")
         return false
     }
-}
-
-// Saving new card to localStorage
-var saveCard = function(newcard){
-    var boards = state.get_board_list();
-    var current_board = getCurrentBoard(boards)
-    var cards = current_board.cards
-    cards.push(newcard)
-    state.save_board_list(boards);
-    displayCard(newcard)
 }
 
 // Delete card from localStorage
