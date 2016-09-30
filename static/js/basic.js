@@ -1,20 +1,20 @@
 $(document).ready(function(){
     if (window.location.pathname == "/"){
-        display_boards()
+        displayBoards()
         var location = true
     }
     else {
-        display_cards()
+        displayCards()
         headerWriter()
         var location = false
     }
 
     $("#save").click(function(){
         if (location){
-            var save = new_board()
+            var save = newBoard()
         }
         else{
-            var save = new_card()
+            var save = newCard()
         }
         if (save)
         {
@@ -45,21 +45,21 @@ $(document).ready(function(){
 });
 
 // JQuery for change header color
-var home_hover = function(color){
+var homeHover = function(color){
     return function(){
         $(this).css("color", color)
     }
 }
 
 // JQuery for change card button color
-var card_hover = function(color){
+var cardHover = function(color){
     return function(){
         $(this).css("background-color", color);
     }
 }
 
 // JQuery for change delete button color
-var del_hover = function(color){
+var deleteHover = function(color){
     return function(){
         $(this).css("background-color", color)
     }
@@ -68,13 +68,13 @@ var del_hover = function(color){
 // JQuery for hiding board
 var boardDeleteHandler = function(){
         $(this).parent().parent().hide();
-        delete_board(this.value)
+        deleteBoard(this.value)
 }
 
 // JQuery for hiding card
 var cardDeleteHandler = function(){
         $(this).parent().parent().hide();
-        delete_card(this.value)
+        deleteCard(this.value)
 }
 
 // Redirecting to cards page
@@ -98,7 +98,7 @@ var Cards = function(title, text, id){
 }
 
 // Creating new board from input data, returns false if user didn't fill all the fields
-var new_board = function(){
+var newBoard = function(){
     var title = document.getElementById("title").value
     var text = document.getElementById("text").value
     var boards = JSON.parse(localStorage.boards)
@@ -113,7 +113,7 @@ var new_board = function(){
             var id = boards[boards.length - 1].id + 1
         }
         var newboard = new Boards(title, text, id, cards = [])
-        save_board(newboard)
+        saveBoard(newboard)
         return true
     }
     else
@@ -124,15 +124,15 @@ var new_board = function(){
 }
 
 // Saving new board to localStorage
-var save_board = function(newboard){
+var saveBoard = function(newboard){
     var boards = JSON.parse(localStorage.boards)
     boards.push(newboard)
     localStorage.boards = JSON.stringify(boards)
-    display_board(newboard)
+    displayBoard(newboard)
 }
 
 // Delete board from localStorage
-var delete_board = function(id){
+var deleteBoard = function(id){
     var boards = JSON.parse(localStorage.boards)
     for (i=0; i<boards.length; i++)
     {
@@ -146,7 +146,7 @@ var delete_board = function(id){
 }
 
 // Insert HTML code for given board to home.html
-var display_board = function(board){
+var displayBoard = function(board){
     var divtag = document.createElement("div");
     divtag.className = "board"
     var div2tag = document.createElement("div");
@@ -158,15 +158,15 @@ var display_board = function(board){
     buttontag.type = "button"
     buttontag.className = "delete"
     buttontag.value = board.id
-    buttontag.addEventListener("mouseover", del_hover("#401658"))
-    buttontag.addEventListener("mouseout", del_hover("#6B2593"))
+    buttontag.addEventListener("mouseover", deleteHover("#401658"))
+    buttontag.addEventListener("mouseout", deleteHover("#6B2593"))
     var buttontag2 = document.createElement("button");
     buttontag2.addEventListener("click", redirectToCards);
     buttontag2.type = "button"
     buttontag2.className = "cards"
     buttontag2.value = board.id
-    buttontag2.addEventListener("mouseover", card_hover("#05a565"))
-    buttontag2.addEventListener("mouseout", card_hover("#1ed68d"))
+    buttontag2.addEventListener("mouseover", cardHover("#05a565"))
+    buttontag2.addEventListener("mouseout", cardHover("#1ed68d"))
     var texttag = document.createElement("p");
     texttag.className = "board_p"
     var title = document.createTextNode(board.title);
@@ -187,7 +187,7 @@ var display_board = function(board){
 }
 
 // Displaying all boards from localStorage
-var display_boards = function(){
+var displayBoards = function(){
     if (!localStorage.boards) {
         var empty_list = [];
         localStorage.boards = JSON.stringify(empty_list);
@@ -195,24 +195,24 @@ var display_boards = function(){
     var boards = JSON.parse(localStorage.boards)
     for(i=0; i<boards.length; i++)
     {
-        display_board(boards[i])
+        displayBoard(boards[i])
     }
 }
 
 // Creating unique header including board's title for cards page
 var headerWriter = function(){
     var boards = JSON.parse(localStorage.boards);
-    var current_board = get_current_board(boards);
+    var current_board = getCurrentBoard(boards);
     var element = document.getElementById("header");
     var title = document.getElementById("home");
-    title.addEventListener("mouseover", home_hover("orange"))
-    title.addEventListener("mouseout", home_hover("white"))
+    title.addEventListener("mouseover", homeHover("orange"))
+    title.addEventListener("mouseout", homeHover("white"))
     var header = document.createTextNode(' Board: "' + current_board.title + '"');
     element.appendChild(header)
 }
 
 // Returning needed board from localStorage
-var get_current_board = function(boards){
+var getCurrentBoard = function(boards){
     var board_id = window.location.pathname.split("/")[2]
     for (i=0; i<boards.length+1; i++)
     {
@@ -225,11 +225,11 @@ var get_current_board = function(boards){
 }
 
 // Creating new card from input data, returns false if user didn't fill all the fields
-var new_card = function(){
+var newCard = function(){
     var title = document.getElementById("title").value
     var text = document.getElementById("text").value
     var boards = JSON.parse(localStorage.boards)
-    var current_board = get_current_board(boards)
+    var current_board = getCurrentBoard(boards)
     var cards = current_board.cards
     if (title && text)
     {
@@ -242,7 +242,7 @@ var new_card = function(){
             var id = cards[current_board.cards.length - 1].id + 1
         }
         var newcard = new Cards(title, text, id)
-        save_card(newcard)
+        saveCard(newcard)
         return true
     }
     else
@@ -253,19 +253,19 @@ var new_card = function(){
 }
 
 // Saving new card to localStorage
-var save_card = function(newcard){
+var saveCard = function(newcard){
     var boards = JSON.parse(localStorage.boards)
-    var current_board = get_current_board(boards)
+    var current_board = getCurrentBoard(boards)
     var cards = current_board.cards
     cards.push(newcard)
     localStorage.boards = JSON.stringify(boards)
-    display_card(newcard)
+    displayCard(newcard)
 }
 
 // Delete card from localStorage
-var delete_card = function(id){
+var deleteCard = function(id){
     var boards = JSON.parse(localStorage.boards)
-    var current_board = get_current_board(boards)
+    var current_board = getCurrentBoard(boards)
     var cards = current_board.cards
     for (i=0; i<cards.length; i++)
     {
@@ -279,7 +279,7 @@ var delete_card = function(id){
 }
 
 // Insert HTML code for given card to home.html
-var display_card = function(card){
+var displayCard = function(card){
     var divtag = document.createElement("div");
     divtag.className = "card"
     var div2tag = document.createElement("div");
@@ -291,8 +291,8 @@ var display_card = function(card){
     buttontag.type = "button"
     buttontag.className = "delete"
     buttontag.value = card.id
-    buttontag.addEventListener("mouseover", del_hover("#401658"))
-    buttontag.addEventListener("mouseout", del_hover("#6B2593"))
+    buttontag.addEventListener("mouseover", deleteHover("#401658"))
+    buttontag.addEventListener("mouseout", deleteHover("#6B2593"))
     var texttag = document.createElement("p");
     texttag.className = "card_p"
     var title = document.createTextNode(card.title);
@@ -310,13 +310,12 @@ var display_card = function(card){
 }
 
 // Displaying all cards from localStorage
-var display_cards = function(){
+var displayCards = function(){
     var boards = JSON.parse(localStorage.boards)
-    var current_board = get_current_board(boards)
+    var current_board = getCurrentBoard(boards)
     var cards = current_board.cards
     for(i=0; i<cards.length; i++)
     {
-        display_card(cards[i])
+        displayCard(cards[i])
     }
-    // document.getElementById("demo").innerHTML = localStorage.boards;
 }
