@@ -1,5 +1,6 @@
 $(document).ready(function(){
     display_cards()
+    headerWriter()
     $("#addbutton").click(function(){
         $(".newForm").fadeIn();
         $("#addbutton").hide();
@@ -46,6 +47,14 @@ $(document).ready(function(){
     });
 
 });
+
+var headerWriter = function(){
+    var boards = JSON.parse(localStorage.boards);
+    var current_board = get_current_board(boards);
+    var element = document.getElementById("header");
+    var header = document.createTextNode(' Board: "' + current_board.title + '"');
+    element.appendChild(header)
+}
 
 var boardDeleteHandler = function()
 {
