@@ -56,7 +56,7 @@ var headerWriter = function(){
     element.appendChild(header)
 }
 
-var boardDeleteHandler = function()
+var cardDeleteHandler = function()
 {
         $(this).parent().parent().hide();
         delete_card(this.value)
@@ -110,7 +110,6 @@ var new_card = function()
     }
 }
 
-
 var save_card = function(newcard)
 {
     var boards = JSON.parse(localStorage.boards)
@@ -146,7 +145,7 @@ var display_card = function(card)
     var titletag = document.createElement("h2");
     titletag.className = "cardtitle"
     var buttontag = document.createElement("button");
-    buttontag.addEventListener("click", boardDeleteHandler)
+    buttontag.addEventListener("click", cardDeleteHandler)
     buttontag.type = "button"
     buttontag.className = "delete"
     buttontag.value = card.id
@@ -177,15 +176,3 @@ var display_cards = function()
     }
     // document.getElementById("demo").innerHTML = localStorage.boards;
 }
-
-// var test = function()
-// {
-//     var board_id = window.location.pathname.split("/")[2]
-//     var a = JSON.parse(localStorage.boards)
-//     a[0].cards.push(card1)
-//     a[0].cards.push(card2)
-//     a[0].cards.push(card3)
-//     localStorage.boards = JSON.stringify(a)
-//     var b = JSON.parse(localStorage.boards)
-//     console.log(b[0].cards[1])
-// }
