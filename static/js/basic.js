@@ -1,5 +1,30 @@
 $(document).ready(function(){
-    display_boards()
+    if (window.location.pathname == "/"){
+        display_boards()
+        var location = true
+    }
+    else {
+        display_cards()
+        headerWriter()
+        var location = false
+    }
+
+    $("#save").click(function(){
+        if (location){
+            var save = new_board()
+        }
+        else{
+            var save = new_card()
+        }
+        if (save)
+        {
+        $(".newForm").hide();
+        $("#addbutton").fadeIn();
+        $('#title').val('');
+        $('#text').val('');
+        }
+    });
+
     $("#addbutton").click(function(){
         $(".newForm").fadeIn();
         $("#addbutton").hide();
@@ -17,59 +42,44 @@ $(document).ready(function(){
         $('#text').val('');
     });
 
-
-    $("#save").click(function(){
-        var save = new_board()
-        if (save)
-        {
-        $(".newForm").hide();
-        $("#addbutton").fadeIn();
-        $('#title').val('');
-        $('#text').val('');
-        }
-    });
-
-    $("#home").hover(function(){
-        $(this).css("color", "orange");
-    }, function(){
-        $(this).css("color", "white");
-    });
-
-    $(".cards").hover(function(){
-        $(this).css("background-color", "#05a565");
-    }, function(){
-        $(this).css("background-color", "#1ed68d");
-    });
-
-    $(".delete").hover(function(){
-        $(this).css("background-color", "#401658");
-    }, function(){
-        $(this).css("background-color", "#6B2593");
-    });
-
 });
 
-var redirectToCards = function() {
+
+var home_hover = function(color){
+    return function(){
+        $(this).css("color", color)
+    }
+}
+
+var card_hover = function(color){
+    return function(){
+        $(this).css("background-color", color);
+    }
+}
+
+var del_hover = function(color){
+    return function(){
+        $(this).css("background-color", color)
+    }
+}
+
+var redirectToCards = function(){
     window.location.href = '/cards/'+ this.value;
 };
 
-
-var boardDeleteHandler = function()
-{
+var boardDeleteHandler = function(){
         $(this).parent().parent().hide();
         delete_board(this.value)
 }
 
-var Boards = function(title, text, id, cards)
-{
+var Boards = function(title, text, id, cards){
     this.title = title
     this.text = text
     this.id = id
     this.cards = cards
 }
 
-var new_board = function()
-{
+var new_board = function(){
     var title = document.getElementById("title").value
     var text = document.getElementById("text").value
     var boards = JSON.parse(localStorage.boards)
@@ -94,16 +104,14 @@ var new_board = function()
     }
 }
 
-var save_board = function(newboard)
-{
+var save_board = function(newboard){
     var boards = JSON.parse(localStorage.boards)
     boards.push(newboard)
     localStorage.boards = JSON.stringify(boards)
     display_board(newboard)
 }
 
-var delete_board = function(id)
-{
+var delete_board = function(id){
     var boards = JSON.parse(localStorage.boards)
     for (i=0; i<boards.length; i++)
     {
@@ -116,8 +124,7 @@ var delete_board = function(id)
     localStorage.boards = JSON.stringify(boards)
 }
 
-var display_board = function(board)
-{
+var display_board = function(board){
     var divtag = document.createElement("div");
     divtag.className = "board"
     var div2tag = document.createElement("div");
@@ -129,11 +136,15 @@ var display_board = function(board)
     buttontag.type = "button"
     buttontag.className = "delete"
     buttontag.value = board.id
+    buttontag.addEventListener("mouseover", del_hover("#401658"))
+    buttontag.addEventListener("mouseout", del_hover("#6B2593"))
     var buttontag2 = document.createElement("button");
     buttontag2.addEventListener("click", redirectToCards);
     buttontag2.type = "button"
     buttontag2.className = "cards"
     buttontag2.value = board.id
+    buttontag2.addEventListener("mouseover", card_hover("#05a565"))
+    buttontag2.addEventListener("mouseout", card_hover("#1ed68d"))
     var texttag = document.createElement("p");
     texttag.className = "board_p"
     var title = document.createTextNode(board.title);
@@ -153,8 +164,7 @@ var display_board = function(board)
     element.appendChild(divtag);
 }
 
-var display_boards = function()
-{
+var display_boards = function(){
     if (!localStorage.boards) {
         var empty_list = [];
         localStorage.boards = JSON.stringify(empty_list);
@@ -164,4 +174,130 @@ var display_boards = function()
     {
         display_board(boards[i])
     }
+}
+
+var headerWriter = function(){
+    var boards = JSON.parse(localStorage.boards);
+    var current_board = get_current_board(boards);
+    var element = document.getElementById("header");
+    var title = document.getElementById("home");
+    title.addEventListener("mouseover", home_hover("orange"))
+    title.addEventListener("mouseout", home_hover("white"))
+    var header = document.createTextNode(' Board: "' + current_board.title + '"');
+    element.appendChild(header)
+}
+
+var cardDeleteHandler = function(){
+        $(this).parent().parent().hide();
+        delete_card(this.value)
+}
+
+var Cards = function(title, text, id){
+    this.title = title
+    this.text = text
+    this.id = id
+}
+
+var get_current_board = function(boards){
+    var board_id = window.location.pathname.split("/")[2]
+    for (i=0; i<boards.length+1; i++)
+    {
+        if (boards[i].id == board_id)
+        {
+        var current_board = boards[i];
+        return current_board;
+        }
+    }
+}
+
+var new_card = function(){
+    var title = document.getElementById("title").value
+    var text = document.getElementById("text").value
+    var boards = JSON.parse(localStorage.boards)
+    var current_board = get_current_board(boards)
+    var cards = current_board.cards
+    if (title && text)
+    {
+        if (current_board.cards.length == 0)
+        {
+            var id = 1
+        }
+        else
+        {
+            var id = cards[current_board.cards.length - 1].id + 1
+        }
+        var newcard = new Cards(title, text, id)
+        save_card(newcard)
+        return true
+    }
+    else
+    {
+        alert("Fill all!")
+        return false
+    }
+}
+
+var save_card = function(newcard){
+    var boards = JSON.parse(localStorage.boards)
+    var current_board = get_current_board(boards)
+    var cards = current_board.cards
+    cards.push(newcard)
+    localStorage.boards = JSON.stringify(boards)
+    display_card(newcard)
+}
+
+var delete_card = function(id){
+    var boards = JSON.parse(localStorage.boards)
+    var current_board = get_current_board(boards)
+    var cards = current_board.cards
+    for (i=0; i<cards.length; i++)
+    {
+        if (id == cards[i].id)
+        {
+            delete cards.splice(i, 1)
+            break
+        }
+    }
+    localStorage.boards = JSON.stringify(boards)
+}
+
+var display_card = function(card){
+    var divtag = document.createElement("div");
+    divtag.className = "card"
+    var div2tag = document.createElement("div");
+    div2tag.className = "div2"
+    var titletag = document.createElement("h2");
+    titletag.className = "cardtitle"
+    var buttontag = document.createElement("button");
+    buttontag.addEventListener("click", cardDeleteHandler)
+    buttontag.type = "button"
+    buttontag.className = "delete"
+    buttontag.value = card.id
+    buttontag.addEventListener("mouseover", del_hover("#401658"))
+    buttontag.addEventListener("mouseout", del_hover("#6B2593"))
+    var texttag = document.createElement("p");
+    texttag.className = "card_p"
+    var title = document.createTextNode(card.title);
+    var buttontext = document.createTextNode("delete");
+    var text = document.createTextNode(card.text);
+    divtag.appendChild(div2tag);
+    div2tag.appendChild(titletag);
+    buttontag.appendChild(buttontext);
+    div2tag.appendChild(buttontag);
+    divtag.appendChild(texttag);
+    titletag.appendChild(title);
+    texttag.appendChild(text);
+    var element = document.getElementById("div1");
+    element.appendChild(divtag);
+}
+
+var display_cards = function(){
+    var boards = JSON.parse(localStorage.boards)
+    var current_board = get_current_board(boards)
+    var cards = current_board.cards
+    for(i=0; i<cards.length; i++)
+    {
+        display_card(cards[i])
+    }
+    // document.getElementById("demo").innerHTML = localStorage.boards;
 }
