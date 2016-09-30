@@ -45,6 +45,11 @@ h1 {
     box-shadow: 0 0 10px;
 }
 
+#home{
+    color: white;
+    cursor: pointer;
+}
+
 #title{
     width: 180px;
 }

@@ -5,6 +5,10 @@ $(document).ready(function(){
         $("#addbutton").hide();
     });
 
+    $("#home").click(function(){
+        window.location.href = '/'
+    });
+
     $("#cancel").click(function(){
         $(".newForm").hide();
         $("#addbutton").fadeIn();
@@ -21,6 +25,12 @@ $(document).ready(function(){
         $('#title').val('');
         $('#text').val('');
         }
+    });
+
+    $("#home").hover(function(){
+        $(this).css("color", "orange");
+    }, function(){
+        $(this).css("color", "white");
     });
 
     $(".cards").hover(function(){

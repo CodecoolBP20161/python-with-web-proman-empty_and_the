@@ -12,6 +12,10 @@ $(document).ready(function(){
         $('#text').val('');
     });
 
+    $("#home").click(function(){
+        window.location.href = '/'
+    });
+
     $("#save").click(function(){
         var save = new_board()
         if (save)
@@ -21,6 +25,12 @@ $(document).ready(function(){
         $('#title').val('');
         $('#text').val('');
         }
+    });
+
+    $("#home").hover(function(){
+        $(this).css("color", "orange");
+    }, function(){
+        $(this).css("color", "white");
     });
 
     $(".cards").hover(function(){
