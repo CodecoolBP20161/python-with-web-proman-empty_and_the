@@ -1,16 +1,16 @@
 $(document).ready(function(){
     if (window.location.pathname == "/"){
         displayBoards()
-        var location = true
+        var boards_bool = true
     }
     else {
         displayCards()
         headerWriter()
-        var location = false
+        var boards_bool = false
     }
 
     $("#save").click(function(){
-        if (location){
+        if (boards_bool){
             var save = newBoard()
         }
         else{
@@ -82,6 +82,35 @@ var redirectToCards = function(){
     window.location.href = '/boards/'+ this.value;
 };
 
+// State pattern implementation
+var State = function(imp){
+    this.implementation = imp
+    this.changeImp = function(newImp){
+        this.implementation = newImp
+    }
+    this.get_board_list = function(){
+        var boards = this.implementation.get_board_list()
+        return boards
+    }
+    this.save_board_list = function(boards){
+        this.implementation.save_board_list(boards)
+    }
+}
+
+// Data call and save from localStorage
+var LocalStorageImp = function(){
+    this.get_board_list = function(){
+    var boards = JSON.parse(localStorage.boards);
+    return boards
+    }
+    this.save_board_list = function(boards){
+    localStorage.boards = JSON.stringify(boards);
+    }
+}
+
+// Global reach of state object
+var state = new State(new LocalStorageImp());
+
 // Boards constructor
 var Boards = function(title, text, id, cards){
     this.title = title
@@ -101,7 +130,7 @@ var Cards = function(title, text, id){
 var newBoard = function(){
     var title = document.getElementById("title").value
     var text = document.getElementById("text").value
-    var boards = JSON.parse(localStorage.boards)
+    var boards = state.get_board_list();
     if (title && text)
     {
         if (boards.length == 0)
@@ -125,15 +154,15 @@ var newBoard = function(){
 
 // Saving new board to localStorage
 var saveBoard = function(newboard){
-    var boards = JSON.parse(localStorage.boards)
-    boards.push(newboard)
-    localStorage.boards = JSON.stringify(boards)
-    displayBoard(newboard)
+    var boards = state.get_board_list();
+    boards.push(newboard);
+    state.save_board_list(boards);
+    displayBoard(newboard);
 }
 
 // Delete board from localStorage
 var deleteBoard = function(id){
-    var boards = JSON.parse(localStorage.boards)
+    var boards = state.get_board_list();
     for (i=0; i<boards.length; i++)
     {
         if (id == boards[i].id)
@@ -142,7 +171,7 @@ var deleteBoard = function(id){
             break
         }
     }
-    localStorage.boards = JSON.stringify(boards)
+    state.save_board_list(boards);
 }
 
 // Insert HTML code for given board to home.html
@@ -192,7 +221,7 @@ var displayBoards = function(){
         var empty_list = [];
         localStorage.boards = JSON.stringify(empty_list);
     }
-    var boards = JSON.parse(localStorage.boards)
+    var boards = state.get_board_list();
     for(i=0; i<boards.length; i++)
     {
         displayBoard(boards[i])
@@ -201,13 +230,13 @@ var displayBoards = function(){
 
 // Creating unique header including board's title for cards page
 var headerWriter = function(){
-    var boards = JSON.parse(localStorage.boards);
+    var boards = state.get_board_list();
     var current_board = getCurrentBoard(boards);
     var element = document.getElementById("header");
     var title = document.getElementById("home");
     title.addEventListener("mouseover", homeHover("orange"))
     title.addEventListener("mouseout", homeHover("white"))
-    var header = document.createTextNode(' Board: "' + current_board.title + '"');
+    var header = document.createTextNode(' Board: ' + current_board.title);
     element.appendChild(header)
 }
 
@@ -228,7 +257,7 @@ var getCurrentBoard = function(boards){
 var newCard = function(){
     var title = document.getElementById("title").value
     var text = document.getElementById("text").value
-    var boards = JSON.parse(localStorage.boards)
+    var boards = state.get_board_list();
     var current_board = getCurrentBoard(boards)
     var cards = current_board.cards
     if (title && text)
@@ -254,17 +283,17 @@ var newCard = function(){
 
 // Saving new card to localStorage
 var saveCard = function(newcard){
-    var boards = JSON.parse(localStorage.boards)
+    var boards = state.get_board_list();
     var current_board = getCurrentBoard(boards)
     var cards = current_board.cards
     cards.push(newcard)
-    localStorage.boards = JSON.stringify(boards)
+    state.save_board_list(boards);
     displayCard(newcard)
 }
 
 // Delete card from localStorage
 var deleteCard = function(id){
-    var boards = JSON.parse(localStorage.boards)
+    var boards = state.get_board_list();
     var current_board = getCurrentBoard(boards)
     var cards = current_board.cards
     for (i=0; i<cards.length; i++)
@@ -275,7 +304,7 @@ var deleteCard = function(id){
             break
         }
     }
-    localStorage.boards = JSON.stringify(boards)
+    state.save_board_list(boards);
 }
 
 // Insert HTML code for given card to home.html
@@ -311,7 +340,7 @@ var displayCard = function(card){
 
 // Displaying all cards from localStorage
 var displayCards = function(){
-    var boards = JSON.parse(localStorage.boards)
+    var boards = state.get_board_list();
     var current_board = getCurrentBoard(boards)
     var cards = current_board.cards
     for(i=0; i<cards.length; i++)
