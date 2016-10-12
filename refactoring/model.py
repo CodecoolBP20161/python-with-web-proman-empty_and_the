@@ -13,6 +13,14 @@ class BaseModel(Model):
     class Meta:
         database = db
 
+    # returns dictionary from an object
+    @classmethod
+    def get_serialized_object(cls):
+        board_list = []
+        for element in cls.select():
+            board_list.append(model_to_dict(element))
+        return board_list
+
 
 class Board(BaseModel):
     title = CharField()
