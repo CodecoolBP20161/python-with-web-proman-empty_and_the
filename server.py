@@ -10,8 +10,10 @@ def root():
     return render_template('home.html')
 
 
-@app.route('/boards/<board_id>')
-def cards(board_id):
-    return render_template('cards.html', board_id=board_id)
+@app.route('/api/', methods=['GET', 'POST'])
+def handle_database():
+    return
 
-app.run(debug=True)
+
+if __name__ == "__main__":
+    app.run(debug=True, host='0.0.0.0')
