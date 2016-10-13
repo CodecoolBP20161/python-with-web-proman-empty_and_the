@@ -15,9 +15,16 @@ function DataBaseImp(){
             });
         })
     }
-    // this.delandshowBoard = function(boardId) {
-    //     console.log("delete")
-    // }
+
+
+    this.delandshowBoard = function(boardId) {
+        $.ajax({
+          method: "DELETE",
+          url: "/api/boards/" + boardId
+        })
+        .done(function(response) {
+        });
+    }
 
     this.postandshowBoard = function(inputTitle, inputBody) {
         $.ajax({
