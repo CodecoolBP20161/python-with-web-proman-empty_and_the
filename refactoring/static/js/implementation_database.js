@@ -63,7 +63,16 @@ function DataBaseImp(){
     // this.delandshowCard = function(boardId, cardId){
     //
     // }
-    // this.postandshowCard = function(inputTitle, inputBody, boardId){
-    //
-    // }
+    this.postandshowCard = function(inputTitle, inputBody, boardId){
+        $.ajax({
+          method: "POST",
+          url: "/api/boards/" + boardId + "/cards",
+          data: { "title": inputTitle,
+                  "body": inputBody
+                }
+        })
+        .done(function(card) {
+            displayCard(card)
+        });
+    }
 };
