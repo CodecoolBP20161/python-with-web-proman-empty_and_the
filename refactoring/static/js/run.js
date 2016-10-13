@@ -1,5 +1,6 @@
 $(document).ready(function(){
     new State(new LocalStorageImp());
+    State().changeImp(new DataBaseImp());
     State().runBoardPage();
 
     $('#add-board').click(function(){
