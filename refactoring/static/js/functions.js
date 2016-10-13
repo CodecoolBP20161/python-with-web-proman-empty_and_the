@@ -19,12 +19,15 @@ function displayBoard(boardObject) {
     divBoard.append(showCard)
     divBoard.appendTo('#board-container');
     showCard.on('click', function(){
+        $(".warning").remove();
         $('#board-container').hide();
         $('#card-container').show();
         $('.formbox').css('height', "400px");
-        $('.submitbutton').css("margin-top", "10px")
+        $('.formbox').css('border', "2px solid orange");
+        $('.submitbutton').css("margin-top", "-5px")
         $("#addbutton").hide();
         $(".form-group").show();
+        $("#backbutton").show()
         state.runCardPage(boardObject.id);
     });
 }
