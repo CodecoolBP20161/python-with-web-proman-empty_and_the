@@ -45,23 +45,61 @@ function LocalStorageImp() {
         localStorage.boards = (JSON.stringify(boardDict))
 
     };
+
     //CARD
     this.runCardPage = function(boardId){
         this.getandshowCard(boardId);
-        var state = new State(new LocalStorageImp());
         $('#add-card').click(function(){
             var inputTitle = $('#input-card-title').val();
             var inputBody = $('#input-card-body').val();
             if (inputTitle && inputBody){
-                state.postandshowCard(inputTitle, inputBody, boardId);
+                State().postandshowCard(inputTitle, inputBody, boardId);
                 // empty board input field after submit
                 resetInputField();
+                $(".warning").remove();
+                $(".form-group").hide();
+                $("#addbuttoncard").show();
             }
             else {
-                alert("Pls fill all!")
+                $(".warning").remove();
+                var warnMes = $('<label class="warning">Field is required!</label>');
+                $(".control-label").append(warnMes);
+
             }
+
         });
 
+        // JQery for handling add button click
+        $("#addbuttoncard").click(function(){
+            $("#addbuttoncard").hide();
+            $(".form-group").show();
+        });
+
+
+        // JQery button hovers
+        $('.delete').mouseover(function() {
+            $(this).css("background-color", "#4e0c74")
+        });
+
+        $('.delete').mouseout(function() {
+            $(this).css("background-color", "#6B2593")
+        });
+
+        $('.backbutton').mouseover(function() {
+            $(this).css("background-color", "#e79600")
+        });
+
+        $('.backbutton').mouseout(function() {
+            $(this).css("background-color", "orange")
+        });
+
+        $('#resetcard').on('click', function(){
+            resetInputField()
+            $(".warning").remove();
+            $(".form-group").hide();
+            $("#addbuttoncard").show();
+
+        });
 
     };
     // get data

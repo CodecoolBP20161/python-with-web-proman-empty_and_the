@@ -2,10 +2,11 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Proman with Benedek</title>
+        <title>ProMan</title>
         <!-- style -->
-        <link rel="stylesheet" href="https://bootswatch.com/spacelab/bootstrap.min.css" charset="utf-8">
-        <link rel="stylesheet" href="static/css/style.css" charset="utf-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <link rel="stylesheet" href="static/css/style.css">
 
         <!-- favicon -->
         <link rel="icon" href="static/img/favicon.ico" type="image/x-icon"/>
@@ -14,47 +15,43 @@
 
 
     <!-- NAVBAR -->
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <!-- <img src="static/img/favicon.ico" /> -->
-                <a class="navbar-brand" href="{{ url_for('index') }}">ProMan with Benedek</a>
-            </div>
-
-        </div>
-    </nav>
-
-
+    <div class="navbar">
+        <h1><a href="{{ url_for('index') }}" id="home">ProMan</a></h1>
+        <a href="{{ url_for('index') }}"><button type="button" id="backbutton"><img id="backadd" src="/static/img/back.png"></button></a>
+        <p id="ptext">Infinitely flexible. Incredibly easy to use. Great mobile apps. It's free.
+                    ProMan keeps track of everything, from the big picture to the minute details.</p>
+    </div>
 
     <!-- BODY  -->
     <!-- BOARD CONTAINER -->
-    <div class="container" id="board-container">
+    <div class="container-fluid" id="board-container">
 
         <div class="board-list">
 
             <!-- "create new board" box -->
             <div class="formbox">
 
-                    <fieldset>
-                        <div class="form-group" >
-                            <div class="input-group">
-                            <div>
-                                <label class="control-label">Title</label>
-                                <input type="text" maxlength="100" class="form-control" id="input-board-title">
-                            </div>
-                            <div>
-                                <label class="control-label">Description</label>
-                                <input type="text" maxlength="200" class="form-control" id="input-board-body">
-                            </div>
-                                <div class="form-group">
-                                    <div class="col-lg-10 col-lg-offset-4">
-                                        <button type="reset" class="btn btn-default reset">reset</button>
-                                        <button type="submit" id="add-board" class="btn btn-primary">create</button>
-                                    </div>
+                <fieldset>
+                    <button type="button" id="addbutton"><img id="add" src="/static/img/add.png"></button>
+                    <div class="form-group" >
+                        <div class="input-group">
+                        <div>
+                            <label class="control-label">Title</label>
+                            <input type="text" maxlength="10" class="form-control" id="input-board-title">
+                        </div>
+                        <div>
+                            <label class="control-label">Description</label>
+                            <input type="text" maxlength="90" class="form-control" id="input-board-body">
+                        </div>
+                            <div class="form-group">
+                                <div class="navbuttons">
+                                    <button type="reset" class="submitbutton" id="reset">CANCEL</button>
+                                    <button type="submit" id="add-board" class="submitbutton">CREATE</button>
                                 </div>
                             </div>
                         </div>
-                    </fieldset>
+                    </div>
+                </fieldset>
 
             </div>
 
@@ -66,28 +63,28 @@
     </div>
 
     <!-- CARD CONTAINER -->
-    <div class="container" id="card-container">
+    <div class="container-fluid" id="card-container">
 
         <div class="card-list">
 
             <!-- "create new board" box -->
             <div class="formbox">
-
                     <fieldset>
+                        <button type="button" id="addbuttoncard"><img id="add" src="/static/img/add.png"></button>
                         <div class="form-group" >
                             <div class="input-group">
                                 <div>
                                     <label class="control-label">Title</label>
-                                    <input type="text" maxlength="100" class="form-control" id="input-card-title">
+                                    <input type="text" maxlength="10" class="form-control" id="input-card-title">
                                 </div>
                                 <div>
                                     <label class="control-label">Description</label>
-                                    <input type="text" maxlength="200" class="form-control" id="input-card-body">
+                                    <textarea type="text" maxlength="338" class="form-control" id="input-card-body"></textarea>
                                 </div>
                                 <div class="form-group">
-                                    <div class="col-lg-10 col-lg-offset-4">
-                                        <button type="reset"  class="btn btn-default reset">reset</button>
-                                        <button type="submit" id="add-card" class="btn btn-primary">create</button>
+                                    <div class="navbuttons">
+                                        <button type="button"  class="submitbutton" id="resetcard">CANCEL</button>
+                                        <button type="submit" id="add-card" class="submitbutton">CREATE</button>
                                     </div>
                                 </div>
                             </div>
@@ -102,7 +99,9 @@
         </div>
 
     </div>
-
+    <div class="footer navbar-fixed-bottom">
+        <p class= "navbartext">© 2016 | Empty and the All rights reserved</p>
+    </div>
 
 
     <!-- jQuery link -->
