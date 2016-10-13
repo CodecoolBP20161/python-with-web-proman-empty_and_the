@@ -45,6 +45,7 @@ function LocalStorageImp() {
         localStorage.boards = (JSON.stringify(boardDict))
 
     };
+
     //CARD
     this.runCardPage = function(boardId){
         this.getandshowCard(boardId);
@@ -57,6 +58,8 @@ function LocalStorageImp() {
                 // empty board input field after submit
                 resetInputField();
                 $(".warning").remove();
+                $(".form-group").hide();
+                $("#addbuttoncard").show();
             }
             else {
                 $(".warning").remove();
@@ -66,6 +69,13 @@ function LocalStorageImp() {
             }
 
         });
+
+        // JQery for handling add button click
+        $("#addbuttoncard").click(function(){
+            $("#addbuttoncard").hide();
+            $(".form-group").show();
+        });
+
 
         // JQery button hovers
         $('.delete').mouseover(function() {
@@ -87,8 +97,8 @@ function LocalStorageImp() {
         $('#resetcard').on('click', function(){
             resetInputField()
             $(".warning").remove();
-            // $(".form-group").hide();
-            // $("#addbutton").show();
+            $(".form-group").hide();
+            $("#addbuttoncard").show();
 
         });
 

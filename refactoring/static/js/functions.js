@@ -23,7 +23,6 @@ function displayBoard(boardObject) {
         $('#board-container').hide();
         $('#card-container').show();
         $('.formbox').css('height', "400px");
-        $('.formbox').css('border', "2px solid orange");
         $('.submitbutton').css("margin-top", "-5px")
         $("#addbutton").hide();
         $(".form-group").show();
