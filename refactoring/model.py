@@ -13,21 +13,37 @@ class BaseModel(Model):
     class Meta:
         database = db
 
-    # returns dictionary from an object
+
+class Board(BaseModel):
+    title = CharField()
+    body = CharField()
+
+    def get_dict_from_object(self):
+        return model_to_dict(self)
+
+    # returns dictionary from a table
     @classmethod
-    def get_serialized_object(cls):
+    def get_dict_from_table(cls):
         board_list = []
         for element in cls.select():
             board_list.append(model_to_dict(element))
         return board_list
 
 
-class Board(BaseModel):
-    title = CharField()
-    body = CharField()
-
-
 class Card(BaseModel):
     title = CharField()
     body = CharField()
     board_id = ForeignKeyField(Board, related_name="parentboard")
+
+    def get_dict_from_object(self):
+        return model_to_dict(self)
+
+    # returns dictionary from a table
+    @classmethod
+    def get_dict_from_table(cls, board_id):
+        card_dict = {"board_id": board_id, "cards": []}
+        cards_by_board = cls.select(cls.id, cls.title, cls.body).where(cls.board_id == board_id)
+        for i in range(len(cards_by_board)):
+            card_dict["cards"].append(model_to_dict(cards_by_board[i]))
+            del card_dict["cards"][i]["board_id"]
+        return card_dict
