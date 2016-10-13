@@ -22,7 +22,7 @@ def all_boards():
         return jsonify(board.get_dict_from_object())
 
 
-@app.route('/api/boards/<board_id>', methods=['GET', 'DELETE'])
+@app.route('/api/boards/<board_id>', methods=['GET', 'POST'])
 def board(board_id):
     if request.method == 'GET':
         try:
@@ -32,9 +32,10 @@ def board(board_id):
             board_dict = {}
         finally:
             return jsonify(board_dict)
-    if request.method == 'DELETE':
+    if request.method == 'POST':
         card = Card.delete().where(Card.board_id == board_id).execute()
         board = Board.delete().where(Board.id == board_id).execute()
+        return "OK"
 
 
 @app.route('/api/boards/<board_id>/cards', methods=['GET', 'POST'])
@@ -47,6 +48,17 @@ def all_cards(board_id):
         body = request.form["body"]
         card = Card.create(title=title, body=body, board_id=board_id)
         return jsonify(card.get_dict_from_object())
+
+
+@app.route('/api/boards/<board_id>/cards/<card_id>', methods=['GET', 'POST'])
+def card(board_id, card_id):
+    if request.method == 'GET':
+        card = Card.select().where(Card.board_id == board_id and Card.id == card_id).get()
+        return jsonify(card.get_dict_from_object())
+
+    if request.method == 'POST':
+        card = Card.delete().where(Card.board_id == board_id and Card.id == card_id).execute()
+        return "OK"
 
 
 if __name__ == "__main__":
