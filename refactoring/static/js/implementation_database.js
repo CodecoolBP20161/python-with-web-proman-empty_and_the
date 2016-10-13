@@ -1,31 +1,43 @@
+$(document).ready(function(){
+    var a = new DataBaseImp()
+    a.getandshowBoard()
+});
 // dataBase constructor implementation  (State)
 function DataBaseImp(){
     //BOARD
-    this.runBoardPage = function() {
-        this.getandshowBoard()
-    }
+    // this.runBoardPage = function() {
+    //     this.getandshowBoard()
+    // }
     this.getandshowBoard = function() {
-        console.log("getandshowBoard")
-    }
-    this.delandshowBoard = function(boardId) {
-        console.log("delete")
-    }
-
-    this.postandshowBoard = function(inputTitle, inputBody) {
-        var boardObject = new Board(inputTitle, inputBody)
-
         $.ajax({
-          method: "POST",
-          url: '/api/',
-          data: { board: JSON.stringify(boardObject) }
+            method: "GET",
+            url: "/api/boards"
         })
-        .done(function( msg ) {
-            alert( "Data Saved: " + msg );
-            boardObject.display();
+        .done(function(response){
+            $.each(response.boards, function(i, board){
+                displayBoard(board)
+            });
         })
-        .fail(function() {
-            alert( "error" );
-        });
+    }
+    // this.delandshowBoard = function(boardId) {
+    //     console.log("delete")
+    // }
+
+    // this.postandshowBoard = function(inputTitle, inputBody) {
+    //     var boardObject = new Board(inputTitle, inputBody)
+    //
+    //     $.ajax({
+    //       method: "POST",
+    //       url: '/api/',
+    //       data: { board: JSON.stringify(boardObject) }
+    //     })
+    //     .done(function( msg ) {
+    //         alert( "Data Saved: " + msg );
+    //         boardObject.display();
+    //     })
+    //     .fail(function() {
+    //         alert( "error" );
+    //     });
 
 
 
@@ -44,4 +56,4 @@ function DataBaseImp(){
     // this.postandshowCard = function(inputTitle, inputBody, boardId){
     //
     // }
-};
+// };
