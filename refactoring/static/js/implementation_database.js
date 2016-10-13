@@ -19,7 +19,7 @@ function DataBaseImp(){
 
     this.delandshowBoard = function(boardId) {
         $.ajax({
-          method: "DELETE",
+          method: "POST",
           url: "/api/boards/" + boardId
         })
         .done(function(response) {
@@ -67,9 +67,14 @@ function DataBaseImp(){
             });
         });
     }
-    // this.delandshowCard = function(boardId, cardId){
-    //
-    // }
+    this.delandshowCard = function(boardId, cardId){
+        $.ajax({
+          method: "POST",
+          url: "/api/boards/" + boardId + "/cards/" + cardId,
+        })
+        .done(function(response) {
+        });
+    }
     this.postandshowCard = function(inputTitle, inputBody, boardId){
         $.ajax({
           method: "POST",
