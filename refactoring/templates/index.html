@@ -5,6 +5,7 @@
         <title>ProMan</title>
         <!-- style -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <link rel="stylesheet" href="static/css/style.css">
 
         <!-- favicon -->
@@ -16,13 +17,14 @@
     <!-- NAVBAR -->
     <div class="navbar">
         <h1><a href="{{ url_for('index') }}" id="home">ProMan</a></h1>
+        <a href="{{ url_for('index') }}"><button type="button" id="backbutton"><img id="backadd" src="/static/img/back.png"></button></a>
         <p id="ptext">Infinitely flexible. Incredibly easy to use. Great mobile apps. It's free.
                     ProMan keeps track of everything, from the big picture to the minute details.</p>
     </div>
 
     <!-- BODY  -->
     <!-- BOARD CONTAINER -->
-    <div class="container" id="board-container">
+    <div class="container-fluid" id="board-container">
 
         <div class="board-list">
 
@@ -39,7 +41,7 @@
                         </div>
                         <div>
                             <label class="control-label">Description</label>
-                            <input type="text" maxlength="200" class="form-control" id="input-board-body">
+                            <input type="text" maxlength="90" class="form-control" id="input-board-body">
                         </div>
                             <div class="form-group">
                                 <div class="navbuttons">
@@ -61,29 +63,26 @@
     </div>
 
     <!-- CARD CONTAINER -->
-    <div class="container" id="card-container">
+    <div class="container-fluid" id="card-container">
 
         <div class="card-list">
 
             <!-- "create new board" box -->
             <div class="formbox">
                     <fieldset>
-
                         <div class="form-group" >
                             <div class="input-group">
                                 <div>
                                     <label class="control-label">Title</label>
                                     <input type="text" maxlength="10" class="form-control" id="input-card-title">
-
-                                    <!-- <input type="text" maxlength="10" class="form-control" id="input-card-title"> -->
                                 </div>
                                 <div>
                                     <label class="control-label">Description</label>
-                                    <input type="text" maxlength="500" class="form-control" id="input-card-body">
+                                    <textarea type="text" maxlength="338" class="form-control" id="input-card-body"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <div class="navbuttons">
-                                        <button type="reset"  class="submitbutton" id="reset">CANCEL</button>
+                                        <button type="button"  class="submitbutton" id="resetcard">CANCEL</button>
                                         <button type="submit" id="add-card" class="submitbutton">CREATE</button>
                                     </div>
                                 </div>
