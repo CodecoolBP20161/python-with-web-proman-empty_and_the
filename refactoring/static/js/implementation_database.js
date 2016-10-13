@@ -19,22 +19,18 @@ function DataBaseImp(){
     //     console.log("delete")
     // }
 
-    // this.postandshowBoard = function(inputTitle, inputBody) {
-    //     var boardObject = new Board(inputTitle, inputBody)
-    //
-    //     $.ajax({
-    //       method: "POST",
-    //       url: '/api/',
-    //       data: { board: JSON.stringify(boardObject) }
-    //     })
-    //     .done(function( msg ) {
-    //         alert( "Data Saved: " + msg );
-    //         boardObject.display();
-    //     })
-    //     .fail(function() {
-    //         alert( "error" );
-    //     });
-    // }
+    this.postandshowBoard = function(inputTitle, inputBody) {
+        $.ajax({
+          method: "POST",
+          url: '/api/boards',
+          data: { "title": inputTitle,
+                  "body": inputBody
+                }
+        })
+        .done(function(board) {
+            displayBoard(board)
+        });
+    }
 
 
     // CARD
