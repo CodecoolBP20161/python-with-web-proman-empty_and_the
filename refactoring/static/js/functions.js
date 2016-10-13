@@ -3,6 +3,7 @@
 function displayBoard(boardObject) {
 
     var divBoard = $('<div class="board" id=board_'+ boardObject.id +'></div>');
+
     // divBoard.append("<p>BOARD</p>");
     divBoard.append("<div class='titleborder'><h2>"+ boardObject.title +" </h2></div>");
     divBoard.append("<p class='board_p'>"+ boardObject.body +" </board_p>");
