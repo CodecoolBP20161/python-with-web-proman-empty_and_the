@@ -1,6 +1,6 @@
 $(document).ready(function(){
-    var state = new State(new LocalStorageImp());
-    state.runBoardPage();
+    new State(new LocalStorageImp());
+    State().runBoardPage();
 
     // JQery button hovers
     $('.delete').mouseover(function() {
@@ -32,7 +32,7 @@ $(document).ready(function(){
         var inputTitle = $('#input-board-title').val();
         var inputBody = $('#input-board-body').val();
         if (inputTitle && inputBody){
-            state.postandshowBoard(inputTitle, inputBody);
+            State().postandshowBoard(inputTitle, inputBody);
             // empty board input field after submit
             resetInputField();
             $(".warning").remove();
