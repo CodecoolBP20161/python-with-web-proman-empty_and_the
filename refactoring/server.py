@@ -14,8 +14,6 @@ def index():
 def all_boards():
     if request.method == 'GET':
         boards = Board.get_dict_from_table()
-        if not boards:
-            boards = {}
         return jsonify(boards)
 
 
@@ -35,8 +33,6 @@ def board(board_id):
 def all_cards(board_id):
     if request.method == 'GET':
         cards = Card.get_dict_from_table(board_id)
-        if not cards["cards"]:
-            cards = {}
         return jsonify(cards)
 
 
