@@ -39,6 +39,11 @@ def all_cards(board_id):
     if request.method == 'GET':
         cards = Card.get_dict_from_table(board_id)
         return jsonify(cards)
+    if request.method == 'POST':
+        title = request.form["title"]
+        body = request.form["body"]
+        card = Card.create(title=title, body=body, board_id=board_id)
+        return jsonify(card.get_dict_from_object())
 
 
 if __name__ == "__main__":
