@@ -27,13 +27,52 @@ h1 {
     display: inline-block;
     flex-wrap: wrap;
     justify-content: center;
+    border-radius: 2px;
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 25px;
+    margin-right: 20px;
+    overflow: hidden;
+    box-shadow: 0 0 5px;
+    position: relative;
+}
+
+
+.card {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 2px 4px 8px 2px rgba(0,0,0,0.2);
+    width: 200px;
+    height: 400px;
+    background-color: #f6f6f6;
+    color: grey;
+    display: inline-block;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px;
     margin-top: 0px;
-    margin-right: 25px;
-    margin-bottom: 35px;
+    margin-bottom: 25px;
     border-radius: 2px;
     overflow: hidden;
     box-shadow: 0 0 5px;
     position: relative;
+    left: auto;
+    right:auto;
+}
+
+.formbox {
+    width: 200px;
+    height: 200px;
+    background-color: #f6f6f6;
+    color: grey;
+    display: inline-block;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px;
+    margin-top: 0px;
+    margin-bottom: 25px;
+    border-radius: 2px;
+    overflow: hidden;
+    box-shadow: 0 0 5px;
 }
 
 h2 {
@@ -51,7 +90,7 @@ h2 {
     padding-top: 10px;
     word-wrap: break-word;
     max-width: 200px;
-    max-height: 100px;
+    max-height: 400px;
     overflow: hidden;
     line-height: 1.2;
 }
@@ -60,24 +99,6 @@ h2 {
     width: 100%;
     display: inline-flex;
     border-bottom: solid #1ef1cc 2px;
-}
-
-.formbox {
-    width: 200px;
-    height: 200px;
-    background-color: #f6f6f6;
-    color: grey;
-    display: inline-block;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-right: 25px;
-    margin-bottom: 35px;
-    border-radius: 2px;
-    overflow: hidden;
-    box-shadow: 0 0 5px;
-    position: relative;
-
-    /*position: absolute;*/
 }
 
 #input-board-title {
@@ -98,37 +119,29 @@ h2 {
 
 #input-card-body {
     width: 180px;
-    height: 222px;
+    height: 210px;
+    margin: 10px;
+    font-size: 12px;
+    resize: none;
+}
+
+.warning {
+    display: inline;
+    font-size: 12px;
+    font-weight: normal;
+    color: red;
     margin-left: 10px;
+    resize: none;
 }
 
 .board-list {
-    margin-top: 30px;
+    margin-top: 20px;
     display: inline-block;
 }
 
 /*.board:hover, .formbox:hover {
     box-shadow: 4px 8px 16px 4px rgba(0,0,0,0.2);
 }*/
-
-.card {
-    /* Add shadows to create the "card" effect */
-    box-shadow: 2px 4px 8px 2px rgba(0,0,0,0.2);
-    width: 200px;
-    height: 400px;
-    background-color: #f6f6f6;
-    color: grey;
-    display: inline-block;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 30px;
-    margin-right: 25px;
-    margin-bottom: 35px;
-    border-radius: 2px;
-    overflow: hidden;
-    box-shadow: 0 0 5px;
-    position: relative;
-}
 
 .card-list {
     margin-top: 20px;
@@ -165,7 +178,8 @@ h2 {
 .navbartext {
     text-align: center;
     font-size: 10px;
-    margin-top: 12px;
+    margin-top: 8px;
+    margin-bottom: auto;
 }
 
 .navbar {
@@ -177,12 +191,11 @@ h2 {
     border-bottom: 1px solid white;
     z-index: 0;
     margin: 0px;
-
 }
 
 .footer {
     text-align: center;
-    height: 40px;
+    height: 30px;
     background-color: rgba(10,244,214, 0.6);
     color: black;
 }
@@ -203,6 +216,27 @@ h2 {
     width: 60px;
     height: 60px;
     padding: 5px;
+    text-align: center;
+}
+
+#backbutton {
+    border: solid 1px orange;
+    background-color: orange;
+    border-radius: 3px;
+    color: white;
+    margin-top: 1px;
+    margin-right: 2px;
+    position:absolute;
+    top:20px;
+    right:10px;
+
+}
+
+#backadd {
+    color: white
+    width: 60px;
+    height: 30px;
+    padding: 3px;
     text-align: center;
 }
 
@@ -246,8 +280,9 @@ h2 {
 
 #home{
     color: white;
-    cursor: pointer;
-    margin-left: 80px;
+    margin-left: 10px;
+    cursor: auto;
+    text-decoration: none;
 }
 
 .control-label {
