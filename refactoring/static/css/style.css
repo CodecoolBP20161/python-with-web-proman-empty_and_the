@@ -1,0 +1,302 @@
+body {
+    margin: 0px;
+    font-family: sans-serif;
+    background: linear-gradient(to right, rgba(10,244,214,1) 0%, rgba(13,142,197,1) 100%);
+}
+
+
+h1 {
+    font-family: Helvetica;
+    font-weight: bolder;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+#ptext {
+    font-size: 14px;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.board{
+    /* Add shadows to create the "card" effect */
+    width: 200px;
+    height: 200px;
+    background-color: #f6f6f6;
+    color: grey;
+    display: inline-block;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-radius: 2px;
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 25px;
+    margin-right: 20px;
+    overflow: hidden;
+    box-shadow: 0 0 5px;
+    position: relative;
+}
+
+
+.card {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 2px 4px 8px 2px rgba(0,0,0,0.2);
+    width: 200px;
+    height: 400px;
+    background-color: #f6f6f6;
+    color: grey;
+    display: inline-block;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px;
+    margin-top: 0px;
+    margin-bottom: 25px;
+    border-radius: 2px;
+    overflow: hidden;
+    box-shadow: 0 0 5px;
+    position: relative;
+    left: auto;
+    right:auto;
+}
+
+.formbox {
+    width: 200px;
+    height: 200px;
+    background-color: #f6f6f6;
+    color: grey;
+    display: inline-block;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px;
+    margin-top: 0px;
+    margin-bottom: 25px;
+    border-radius: 2px;
+    overflow: hidden;
+    box-shadow: 0 0 5px;
+}
+
+h2 {
+    font-family: Helvetica;
+    display: inline-block;
+    margin-left: 8px;
+    margin-top: 8px;
+}
+
+.board_p {
+    font-size: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    word-wrap: break-word;
+    max-width: 200px;
+    max-height: 400px;
+    overflow: hidden;
+    line-height: 1.2;
+}
+
+.titleborder {
+    width: 100%;
+    display: inline-flex;
+    border-bottom: solid #1ef1cc 2px;
+}
+
+#input-board-title {
+    width: 180px;
+    margin-left: 10px;
+}
+
+#input-board-body {
+    width: 180px;
+    height: 38px;
+    margin-left: 10px;
+}
+
+#input-card-title {
+    width: 180px;
+    margin-left: 10px;
+}
+
+#input-card-body {
+    width: 180px;
+    height: 210px;
+    margin: 10px;
+    font-size: 12px;
+    resize: none;
+}
+
+.warning {
+    display: inline;
+    font-size: 12px;
+    font-weight: normal;
+    color: red;
+    margin-left: 10px;
+    resize: none;
+}
+
+.board-list {
+    margin-top: 20px;
+    display: inline-block;
+}
+
+/*.board:hover, .formbox:hover {
+    box-shadow: 4px 8px 16px 4px rgba(0,0,0,0.2);
+}*/
+
+.card-list {
+    margin-top: 20px;
+    display: inline-block;
+}
+
+#card-container{
+    display: none;
+}
+
+#add-board {
+    position: relative;;
+    top:0px;
+    left:0px;
+}
+
+#add-card {
+    position: relative;;
+    top:0px;
+    left:0px;
+}
+
+#reset {
+    position: relative;;
+    /*top:55px;
+    left:90px;*/
+}
+
+.remove {margin: 0.5em;
+    float: right;
+}
+
+
+.navbartext {
+    text-align: center;
+    font-size: 10px;
+    margin-top: 8px;
+    margin-bottom: auto;
+}
+
+.navbar {
+    color: white;
+    background-color: none;
+    font-size: 18px;
+    width: auto;
+    margin-right: 95px;
+    border-bottom: 1px solid white;
+    z-index: 0;
+    margin: 0px;
+}
+
+.footer {
+    text-align: center;
+    height: 30px;
+    background-color: rgba(10,244,214, 0.6);
+    color: black;
+}
+
+#addbutton {
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    background-color: orange;
+    border-radius: 5px;
+    margin-right: 35px;
+    margin-bottom: 35px;
+    border-radius: 2px;
+}
+
+#addbuttoncard {
+    width: 200px;
+    height: 400px;
+    text-align: center;
+    background-color: orange;
+    border-radius: 5px;
+    margin-right: 35px;
+    margin-bottom: 35px;
+    border-radius: 2px;
+}
+
+#add {
+    color: white
+    width: 60px;
+    height: 60px;
+    padding: 5px;
+    text-align: center;
+}
+
+#backbutton {
+    border: solid 1px orange;
+    background-color: orange;
+    border-radius: 3px;
+    color: white;
+    margin-top: 1px;
+    margin-right: 2px;
+    position:absolute;
+    top:20px;
+    right:10px;
+
+}
+
+#backadd {
+    color: white
+    width: 60px;
+    height: 30px;
+    padding: 3px;
+    text-align: center;
+}
+
+.delete {
+    border: solid 1px white;
+    background-color: #6B2593;
+    border-radius: 3px;
+    color: white;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+
+.cards {
+    border: solid 1px white;
+    background-color: #1ed68d;
+    border-radius: 3px;
+    color: white;
+    position: absolute;
+    right: 70px;
+    bottom: 10px;
+}
+
+
+.submitbutton {
+    width: 75px;
+    height: 40px;
+    display: inline-block;;
+    text-align: center;
+    background-color: orange;
+    color: white;
+    border-radius: 2px;
+    display: inline-block;
+}
+
+.navbuttons {
+    margin-top: 10px;
+    margin-left: 10px;
+    display: inline-block;
+}
+
+#home{
+    color: white;
+    margin-left: 10px;
+    cursor: auto;
+    text-decoration: none;
+}
+
+.control-label {
+    margin-top: 10px;
+    margin-left: 10px;
+}
