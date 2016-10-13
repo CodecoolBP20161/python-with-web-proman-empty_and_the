@@ -48,12 +48,11 @@ function LocalStorageImp() {
     //CARD
     this.runCardPage = function(boardId){
         this.getandshowCard(boardId);
-        var state = new State(new LocalStorageImp());
         $('#add-card').click(function(){
             var inputTitle = $('#input-card-title').val();
             var inputBody = $('#input-card-body').val();
             if (inputTitle && inputBody){
-                state.postandshowCard(inputTitle, inputBody, boardId);
+                State().postandshowCard(inputTitle, inputBody, boardId);
                 // empty board input field after submit
                 resetInputField();
             }
