@@ -7,10 +7,9 @@ function displayBoard(boardObject) {
     divBoard.append("<div class='titleborder'><h2>"+ boardObject.title +" </h2></div>");
     divBoard.append("<p class='board_p'>"+ boardObject.body +" </board_p>");
     var btnDelete = $('<button class="delete">delete</button>')
-    var state = new State(new LocalStorageImp());
     btnDelete.on('click', function(){
 
-        state.delandshowBoard(boardObject.id);
+        State().delandshowBoard(boardObject.id);
         var board = $('#board_'+ boardObject.id)
         board.hide();
     });
@@ -27,7 +26,7 @@ function displayBoard(boardObject) {
         $("#addbutton").hide();
         $(".form-group").show();
         $("#backbutton").show()
-        state.runCardPage(boardObject.id);
+        State().runCardPage(boardObject.id);
     });
 }
 
@@ -38,9 +37,7 @@ function displayCard(cardObject) {
     divCard.append("<p class='board_p'>"+ cardObject.body +" </board_p>");
     var btnDelete = $('<button class="delete">delete</button>')
     btnDelete.on('click', function(){
-        var state = new State(new LocalStorageImp());
-
-        state.delandshowCard(cardObject.boardId, cardObject.id);
+        State().delandshowCard(cardObject.boardId, cardObject.id);
         var card = $('#card_'+ cardObject.id)
         card.hide();
     });
