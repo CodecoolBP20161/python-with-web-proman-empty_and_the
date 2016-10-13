@@ -22,7 +22,7 @@ def all_boards():
         return jsonify(board.get_dict_from_object())
 
 
-@app.route('/api/boards/<board_id>', methods=['GET', 'POST'])
+@app.route('/api/boards/<board_id>', methods=['GET', 'DELETE'])
 def board(board_id):
     if request.method == 'GET':
         try:
@@ -32,6 +32,9 @@ def board(board_id):
             board_dict = {}
         finally:
             return jsonify(board_dict)
+    if request.method == 'DELETE':
+        card = Card.delete().where(Card.board_id == board_id).execute()
+        board = Board.delete().where(Board.id == board_id).execute()
 
 
 @app.route('/api/boards/<board_id>/cards', methods=['GET', 'POST'])
