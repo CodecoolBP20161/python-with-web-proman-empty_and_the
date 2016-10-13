@@ -15,6 +15,11 @@ def all_boards():
     if request.method == 'GET':
         boards = Board.get_dict_from_table()
         return jsonify(boards)
+    if request.method == 'POST':
+        title = request.form["title"]
+        body = request.form["body"]
+        board = Board.create(title=title, body=body)
+        return jsonify(board.get_dict_from_object())
 
 
 @app.route('/api/boards/<board_id>', methods=['GET', 'POST'])
