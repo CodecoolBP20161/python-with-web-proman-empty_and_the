@@ -1,6 +1,6 @@
 @font-face {
-    font-family: myFirstFont;
-    src: url(sansation_light.woff);
+    font-family: "monof55";
+    src: url('../font/monof55.ttf') format('truetype');
 }
 
 body {
@@ -9,9 +9,8 @@ body {
     background: linear-gradient(to right, rgba(10,244,214,1) 0%, rgba(13,142,197,1) 100%);
 }
 
-
 h1 {
-    font-family: Helvetica;
+    font-family: helvetica;
     font-weight: bolder;
     display: inline-block;
     margin-right: 10px;
@@ -20,7 +19,7 @@ h1 {
 #ptext {
     font-size: 14px;
     display: inline-block;
-    margin-left: 10px;
+    margin-left: 35px;
 }
 
 .board{
@@ -81,13 +80,14 @@ h1 {
 }
 
 h2 {
-    font-family: Helvetica;
+    font-family: monof55;
     display: inline-block;
     margin-left: 8px;
     margin-top: 8px;
 }
 
 .board_p {
+    font-family: monof55;
     font-size: 15px;
     padding-left: 10px;
     padding-right: 10px;
@@ -296,9 +296,9 @@ h2 {
 
 #home{
     color: white;
-    margin-left: 10px;
     cursor: auto;
     text-decoration: none;
+    margin-left: 35px;
 }
 
 .control-label {
