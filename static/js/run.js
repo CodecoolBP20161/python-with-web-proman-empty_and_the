@@ -1,5 +1,6 @@
 $(document).ready(function(){
     new State(new LocalStorageImp())
+    # Implementation change to database usage
     State().changeImp(new DataBaseImp());
     State().runBoardPage();
 
